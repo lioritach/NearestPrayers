@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Synagogue"></activity>
+        <activity android:name=".zmaniHayom"></activity>
+        <activity android:name=".Synagogue" />
         <activity android:name=".synagogue" />
         <activity android:name=".Sfaradi" />
         <activity android:name=".Ashkenaz" />

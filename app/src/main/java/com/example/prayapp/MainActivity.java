@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    CardView book, synagogue;
+    CardView book, synagogue, zmanyHayom;
 
 
     @Override
@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         book.setOnClickListener(this);
         synagogue = (CardView) findViewById(R.id.synagogue_cardID);
         synagogue.setOnClickListener(this);
+        zmanyHayom = (CardView) findViewById(R.id.zmaniHayum_cardID);
+        zmanyHayom.setOnClickListener(this);
 
 
         /*--------Hooks---------*/
@@ -121,6 +123,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.synagogue_cardID:
                 intent = new Intent(this, Synagogue.class);
+                startActivity(intent);
+                break;
+            case R.id.zmaniHayum_cardID:
+                intent = new Intent(this, zmaniHayom.class);
                 startActivity(intent);
                 break;
         }
