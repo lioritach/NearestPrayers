@@ -7,7 +7,12 @@
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_login"
+                    android:icon="@drawable/ic_login"
                     android:title="התחבר" />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_logout"
+                    android:title="התנתק" />
             </group>
         </menu>
     </item>
