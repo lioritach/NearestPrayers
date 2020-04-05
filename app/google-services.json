@@ -8,6 +8,7 @@
   "client": [
     {
       "client_info": {
+<<<<<<< HEAD
         "mobilesdk_app_id": "1:703348442785:android:37ad082e0f3532e25792e0",
         "android_client_info": {
           "package_name": "com.example.group21"
@@ -40,6 +41,11 @@
         "mobilesdk_app_id": "1:703348442785:android:914b1ca32a3b74665792e0",
         "android_client_info": {
           "package_name": "com.example.prayapp"
+=======
+        "mobilesdk_app_id": "1:703348442785:android:914b1ca32a3b74665792e0",
+        "android_client_info": {
+          "package_name": "com.example.group21"
+>>>>>>> 819cd51ad2850b27d04430cd6cc6f5404b140b45
         }
       },
       "oauth_client": [
