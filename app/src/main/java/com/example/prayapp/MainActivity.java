@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //Hide or show items
         Menu menu = navigationView.getMenu();
-        menu.findItem(R.id.nav_logout).setVisible(false);
+        menu.findItem(R.id.nav_logout).setVisible(true);
         menu.findItem(R.id.nav_add).setVisible(false);
         menu.findItem(R.id.nav_event).setVisible(false);
 

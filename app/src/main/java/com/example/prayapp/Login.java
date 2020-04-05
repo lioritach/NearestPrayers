@@ -50,6 +50,7 @@ public class Login extends AppCompatActivity {
         navigationView = findViewById(R.id.nav_view);
 
 
+
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
