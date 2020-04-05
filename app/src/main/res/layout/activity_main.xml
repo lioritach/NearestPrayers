@@ -9,6 +9,7 @@
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
+    <!-- The title "Nearest Prayers" -->
     <TextView
         android:id="@+id/textView6"
         android:layout_width="301dp"
