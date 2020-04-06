@@ -31,11 +31,10 @@ public class LoginTest {
         mlogin = loginActivityTestRule.getActivity();
     }
 
+    /* Test for Login Button */
     @Test
     public void testLoginActivity(){
-
         assertNotNull(mlogin.findViewById(R.id.login_id));
-
         onView(withId(R.id.login_id)).perform(click());
         Activity Login = getInstrumentation().waitForMonitorWithTimeout(monitorLogin, 5000);
         assertNotNull(Login);

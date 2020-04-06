@@ -30,6 +30,7 @@ public class RegisterTest {
 
     }
 
+    /* Test for Register Button */
     @Test
     public void testRegisterActivity(){
         assertNotNull(mRegister.findViewById(R.id.alreadyRegister));
