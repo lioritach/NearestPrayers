@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    /**
+     * implement the toolbar options
+     * @param menuItem
+     * @return true
+     */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -77,6 +82,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    /**
+     * implement the icons in the home page
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         Intent intent;

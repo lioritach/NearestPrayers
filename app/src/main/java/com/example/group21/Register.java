@@ -28,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Register extends AppCompatActivity {
 
+    // declare variables
     EditText mFullName, mEmail, mPassword, mPhone;
     Button mRegisterBtn;
     TextView mLoginBtn;
@@ -47,7 +48,7 @@ public class Register extends AppCompatActivity {
         mRegisterBtn = (Button) findViewById(R.id.login_id);
         mLoginBtn = findViewById(R.id.alreadyRegister);
 
-        fAuth = FirebaseAuth.getInstance();
+        fAuth = FirebaseAuth.getInstance(); //for firebase
         progressBar = findViewById(R.id.progressBar_id);
 
         if(fAuth.getCurrentUser() != null){
@@ -55,6 +56,7 @@ public class Register extends AppCompatActivity {
             finish();
         }
 
+        //when user click on register button
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

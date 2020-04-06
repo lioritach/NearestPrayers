@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
 
-
+    //for the login activity
     EditText mEmail, mPassword;
     Button mLoginBtn;
     TextView mCreateBtn, mForgotBtn;
@@ -50,21 +50,24 @@ public class Login extends AppCompatActivity {
         navigationView = findViewById(R.id.nav_view);
 
 
-
+        //when user click on login button
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
 
+                //test for empty email, if empty return error message
                 if(TextUtils.isEmpty(email)){
                     mEmail.setError("Email is required!");
                     return;
                 }
+                //test for empty password, if empty return error message
                 if(TextUtils.isEmpty(password)){
                     mPassword.setError("Password is required!");
                     return;
                 }
+                //test if the password is lower than 6 characters, if less return error message
                 if(password.length() < 6){
                     mPassword.setError("Password must be >= 6 characters");
                     return;
@@ -90,6 +93,7 @@ public class Login extends AppCompatActivity {
 
         });
 
+        //when user click on register button
         mCreateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +101,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
+        //when user click on forgot password button
         mForgotBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +116,6 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // extract the email and send reset link
-
                         String mail = resetMail.getText().toString();
                         fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
