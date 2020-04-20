@@ -2,8 +2,11 @@ package com.example.group21;
 
 import android.app.Activity;
 import android.app.Instrumentation;
+import android.widget.EditText;
 
 import androidx.test.rule.ActivityTestRule;
+
+import com.example.group21.Authentication.Register;
 
 import org.junit.After;
 import org.junit.Before;
@@ -39,6 +42,21 @@ public class RegisterTest {
         Activity Register = getInstrumentation().waitForMonitorWithTimeout(monitorRegister, 5000);
         assertNotNull(Register);
         Register.finish();
+    }
+
+    //Test for the Edit Texts fields in the register class
+    @Test
+    public void registerTestEditText() {
+
+        EditText registerName = mRegister.findViewById(R.id.fullName);
+        EditText registerEmail = mRegister.findViewById(R.id.Email);
+        EditText registerPhone = mRegister.findViewById(R.id.password);
+
+        //Check if the name, email, phone are not null
+        assertNotNull(registerName);
+        assertNotNull(registerEmail);
+        assertNotNull(registerPhone);
+
     }
 
     @After
