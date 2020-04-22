@@ -12,9 +12,21 @@
                 <item
                     android:id="@+id/nav_logout"
                     android:icon="@drawable/ic_logout"
+                    android:visible="true"
                     android:title="התנתק" />
             </group>
         </menu>
+    </item>
+
+    <item android:title="Other">
+
+        <menu>
+            <item
+                android:id="@+id/nav_payment"
+                android:icon="@drawable/ic_share"
+                android:title="תרום לאפליקציה" />
+        </menu>
+
     </item>
 
 </menu>
