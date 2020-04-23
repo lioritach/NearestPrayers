@@ -1,4 +1,4 @@
-package com.example.group21;
+package com.example.group21.Authentication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.group21.Login;
 import com.example.group21.MainActivity;
 import com.example.group21.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,7 +44,7 @@ public class Register extends AppCompatActivity {
         mEmail = findViewById(R.id.Email);
         mPassword = findViewById(R.id.password);
         mPhone = findViewById(R.id.phone);
-        mRegisterBtn = (Button) findViewById(R.id.login_id);
+        mRegisterBtn = (Button) findViewById(R.id.registerID);
         mLoginBtn = findViewById(R.id.alreadyRegister);
 
         fAuth = FirebaseAuth.getInstance(); //for firebase
