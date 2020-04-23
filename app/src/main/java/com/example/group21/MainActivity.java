@@ -7,16 +7,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.group21.Authentication.Login;
+import com.example.group21.Payment.Payment;
+import com.example.group21.slides.OnBoarding;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
@@ -24,12 +24,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    FirebaseAuth auth;
     CardView book;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         book = (CardView) findViewById(R.id.siddur_cardID);
         book.setOnClickListener(this);
 
@@ -65,14 +69,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(nav_login_intent);
                 break;
             case R.id.nav_logout:
-                Intent nav_logout_intent = new Intent(MainActivity.this, MainActivity.class);
+                Intent nav_logout_intent = new Intent(MainActivity.this, Login.class);
+                FirebaseAuth.getInstance().signOut();
                 startActivity(nav_logout_intent);
+                finish();
+                break;
+            case R.id.nav_payment:
+                Intent nav_payment_intent = new Intent(MainActivity.this, Payment.class);
+                startActivity(nav_payment_intent);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
-
         }
+
 
 
     @Override
@@ -96,8 +106,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.siddur_cardID:
                 intent = new Intent(this, Siddur.class);
                 startActivity(intent);
-                break;
         }
 
     }
+
+
 }
