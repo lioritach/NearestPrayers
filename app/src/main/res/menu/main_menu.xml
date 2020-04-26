@@ -17,7 +17,18 @@
             </group>
         </menu>
     </item>
+    <item android:title="Communicate">
 
+        <menu>
+
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share"
+                android:title="שתפו את האפליקציה" />
+
+        </menu>
+
+    </item>
     <item android:title="Other">
 
         <menu>
