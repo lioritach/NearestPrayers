@@ -80,12 +80,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
-                String shareSub = "אפליקציית NearestPrayers";
                 String shareBody = "היי, משתף לך קישור לאפליקציית מציאת מניינים בבאר שבע, תוריד גם! או חפש -יגעת ומצאת- בגוגל :) ";
+                String shareSub = "אפליקציית NearestPrayers";
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
                 shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(shareIntent, "שתף באמצעות"));
                 break;
+
+
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
