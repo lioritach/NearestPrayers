@@ -2,5 +2,35 @@
     <string name="app_name">Nearest Prayers</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_maps">Map</string>
 
+    <!--Titles-->
+    <string name="first_slide_title">מצא מניינים לפי המיקום הנוכחי שלך</string>
+    <string name="second_slide_title">הוסף בתי כנסת למאגר</string>
+    <string name="third_slide_title">זמני היום</string>
+    <string name="fourth_slide_title">הלכה יומית</string>
+    <string name="fifth_slide_title">סידור לפי נוסח שונה</string>
+
+    <!--Descriptions-->
+    <string name="first_slide_desc">
+        רוצה להתפלל ולא יודע היכן
+        <br>
+            נמצא בית הכנסת הקרוב אלייך?
+        </br>
+        <br>
+            לחץ על מצא "מניין קרוב"
+        </br>
+        <br>
+            ותוכל לצפות ברשימת בתי הכנסת באיזור
+        </br>
+    </string>
+    <string name="second_slide_desc">גבאי של בית כנסת? תוכל להירשם לאפליקציה ולהוסיף את בית הכנסת שלך למאגר שלנו, תוכל גם לעדכן זמני תפילות ונוסחי התפילה</string>
+    <string name="third_slide_desc">לא יודעים מתי מתפללים שחרית בנץ? הולכים לבקר בעיר אחרת ולא בטוחים מתי השקיעה? לחצו על "זמני היום" ותוכלו להתעדכן</string>
+    <string name="fourth_slide_desc">מעוניינים לקרוא בכל יום הלכה יומית? לחצו על "הלכה יומית" ותוכלו להתעדכן</string>
+    <string name="fifth_slide_desc">נמצאים ללא סידור תפילה? לחצו על "סידור" ותוכלו לבחור את הנוסח המתאים עבורכם (ספרדי/אשכנזי)</string>
+
+    <!--Buttons-->
+    <string name="skip_btn"></string>
+    <string name="next_btn"></string>
+    <string name="back_to_app">חזור לעמוד הבית</string>
 </resources>
