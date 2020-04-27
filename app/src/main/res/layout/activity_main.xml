@@ -27,9 +27,9 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_width="409dp"
+                android:layout_width="416dp"
                 android:layout_height="wrap_content"
-                android:background="#00008507"
+                android:background="@color/colorPrimary"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -46,22 +46,22 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/baloo"
                 android:text="Nearest Prayers"
-                android:textSize="30sp"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toStartOf="@+id/imageView6"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="74dp"
-                android:layout_height="67dp"
+                android:layout_width="67dp"
+                android:layout_height="53dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
+                android:contentDescription="TODO"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:srcCompat="@drawable/icons8_kippah_48"
-                android:contentDescription="TODO" />
+                app:srcCompat="@drawable/icons8_kippah_48" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -156,6 +156,7 @@
                     android:id="@+id/zmaniHayum_cardID"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:clickable="true"
                     android:layout_margin="10dp"
                     android:layout_weight="1">
 
@@ -186,9 +187,11 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/findMinyan_cardID"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_margin="10dp"
+                    android:clickable="true"
                     android:layout_weight="1">
 
                     <RelativeLayout
@@ -240,8 +243,10 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/halacha_yomit_cardID"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:clickable="true"
                     android:layout_margin="10dp"
                     android:layout_weight="1">
 
