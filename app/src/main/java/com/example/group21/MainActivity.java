@@ -14,7 +14,6 @@ import android.view.View;
 
 import com.example.group21.Authentication.Login;
 import com.example.group21.Payment.Payment;
-import com.example.group21.slides.OnBoarding;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -78,6 +77,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent nav_payment_intent = new Intent(MainActivity.this, Payment.class);
                 startActivity(nav_payment_intent);
                 break;
+            case R.id.nav_share:
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                String shareBody = "היי, משתף לך קישור לאפליקציית מציאת מניינים בבאר שבע, תוריד גם! או חפש -יגעת ומצאת- בגוגל :) ";
+                String shareSub = "אפליקציית NearestPrayers";
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(shareIntent, "שתף באמצעות"));
+                break;
+
+
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
