@@ -126,12 +126,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(this, Siddur.class);
                 startActivity(intent);
                 break;
-            /*
+
             case R.id.zmaniHayum_cardID:
                 intent = new Intent(this, ZmaniHayum.class);
                 startActivity(intent);
-
-               */
         }
 
     }
