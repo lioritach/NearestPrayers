@@ -16,6 +16,7 @@
                     android:title="התנתק" />
                 <item
                     android:id="@+id/nav_help"
+                    android:icon="@drawable/ic_help"
                     android:title="הסבר שימוש באפליקציה" />
             </group>
         </menu>
