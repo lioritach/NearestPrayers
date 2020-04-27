@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     /**
-     * implement the toolbar options
+     * implement the toolbar options.
      * @param menuItem
      * @return true
      */
