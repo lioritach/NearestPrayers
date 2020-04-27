@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.example.group21.Authentication.Login;
 import com.example.group21.Payment.Payment;
+import com.example.group21.slides.OnBoarding;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -85,6 +86,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
                 shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(shareIntent, "שתף באמצעות"));
+                break;
+            case R.id.nav_help:
+                Intent nav_help_intent = new Intent(MainActivity.this, OnBoarding.class);
+                startActivity(nav_help_intent);
                 break;
 
 
