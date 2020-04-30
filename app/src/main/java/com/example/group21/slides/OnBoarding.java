@@ -2,14 +2,19 @@ package com.example.group21.slides;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.group21.HelperClasses.SliderAdapter;
+import com.example.group21.MainActivity;
 import com.example.group21.R;
 
 public class OnBoarding extends AppCompatActivity {
@@ -19,6 +24,7 @@ public class OnBoarding extends AppCompatActivity {
     SliderAdapter sliderAdapter;
     TextView[] dots;
     Button back_to_app;
+    int currentPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,20 @@ public class OnBoarding extends AppCompatActivity {
         viewPager.setAdapter(sliderAdapter);
         addDots(0);
         viewPager.addOnPageChangeListener(changeListener);
+    }
+
+    public void skip(View view){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
+    }
+
+    public void next(View view){
+        viewPager.setCurrentItem(currentPosition + 1);
+    }
+
+    public void backHomePage(View view){
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
     private void addDots(int pos){
@@ -65,6 +85,8 @@ public class OnBoarding extends AppCompatActivity {
         @Override
         public void onPageSelected(int position) {
             addDots(position);
+
+            currentPosition = position;
 
             if(position == 0){
                 back_to_app.setVisibility(View.INVISIBLE);
