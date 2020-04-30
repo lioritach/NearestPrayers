@@ -30,7 +30,7 @@
     <string name="fifth_slide_desc">נמצאים ללא סידור תפילה? לחצו על "סידור" ותוכלו לבחור את הנוסח המתאים עבורכם (ספרדי/אשכנזי)</string>
 
     <!--Buttons-->
-    <string name="skip_btn"></string>
-    <string name="next_btn"></string>
+    <string name="skip_btn">דלג</string>
+    <string name="next_btn">הבא</string>
     <string name="back_to_app">חזור לעמוד הבית</string>
 </resources>
