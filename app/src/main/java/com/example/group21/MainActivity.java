@@ -94,7 +94,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent nav_help_intent = new Intent(MainActivity.this, OnBoarding.class);
                 startActivity(nav_help_intent);
                 break;
-
+            case R.id.nav_contactUs:
+                Intent nav_contactUs_intent = new Intent(MainActivity.this, ContactUs.class);
+                startActivity(nav_contactUs_intent);
+                break;
 
 
         }
