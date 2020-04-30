@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ContactUs">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/cardview_light_background"/>
+
+    <EditText
+        android:id="@+id/ourmailID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nearestprayers@gmail.com"
+        android:enabled="false"/>
+
+    <EditText
+        android:id="@+id/subjectID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="נושא"
+        android:lines="2"
+        android:layout_gravity="start|top"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/cardview_light_background"/>
+
+    <EditText
+        android:id="@+id/messageID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="הודעה"
+        android:lines="5"
+        android:layout_gravity="start|top"/>
+
+    <Button
+        android:id="@+id/btn_sendID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="שלח"/>
+
+</LinearLayout>
