@@ -3,14 +3,25 @@
     package="com.example.group21">
 
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Register"></activity>
-        <activity android:name=".Login" />
+        <activity android:name=".databaseReader" />
+        <activity android:name=".ContactUs" />
+        <activity android:name=".RateUs" />
+        <activity android:name=".Payment.PaymentDetails" />
+        <activity android:name=".Payment.Payment" />
+        <activity android:name=".HalachaYomit" />
+        <activity android:name=".slides.OnBoarding" />
+        <activity android:name=".Synagogue" />
+        <activity android:name=".ZmaniHayum" />
+        <activity android:name=".map" />
+        <activity android:name=".Authentication.Register" />
+        <activity android:name=".Authentication.Login" />
         <activity android:name=".Sfaradi" />
         <activity android:name=".Ashkenaz" />
         <activity android:name=".Siddur" />
@@ -23,9 +34,14 @@
         </activity>
 
         <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+        <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
