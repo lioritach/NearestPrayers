@@ -40,6 +40,9 @@
                 android:id="@+id/nav_payment"
                 android:icon="@drawable/ic_share"
                 android:title="תרום לאפליקציה" />
+            <item
+                android:id="@+id/nav_contactUs"
+                android:title="משוב" />
         </menu>
 
     </item>
