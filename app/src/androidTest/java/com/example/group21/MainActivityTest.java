@@ -40,6 +40,17 @@ public class MainActivityTest {
         assertNotNull(Siddur);
         Siddur.finish();
     }
+    
+    @Test
+    public void ZmaniHayumTestCardView(){
+
+        assertNotNull(mainActivity.findViewById(R.id.zmaniHayum_cardID));
+        onView(withId(R.id.zmaniHayum_cardID)).perform(click());
+        Activity ZmaniHayum = getInstrumentation().waitForMonitorWithTimeout(monitorZmaniHayum, 5000);
+        assertNotNull(ZmaniHayum);
+        ZmaniHayum.finish();
+
+    }
 
     @After
     public void tearDown() throws Exception {
