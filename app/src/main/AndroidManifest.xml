@@ -10,16 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".databaseReader" />
         <activity android:name=".ContactUs" />
-        <activity android:name=".RateUs" />
         <activity android:name=".Payment.PaymentDetails" />
         <activity android:name=".Payment.Payment" />
-        <activity android:name=".HalachaYomit" />
         <activity android:name=".slides.OnBoarding" />
-        <activity android:name=".Synagogue" />
         <activity android:name=".ZmaniHayum" />
-        <activity android:name=".map" />
         <activity android:name=".Authentication.Register" />
         <activity android:name=".Authentication.Login" />
         <activity android:name=".Sfaradi" />
