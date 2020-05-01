@@ -2,14 +2,11 @@ package com.example.group21.slides;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,12 +16,12 @@ import com.example.group21.R;
 
 public class OnBoarding extends AppCompatActivity {
 
-    ViewPager viewPager;
-    LinearLayout dotsLayout;
-    SliderAdapter sliderAdapter;
-    TextView[] dots;
-    Button back_to_app;
-    int currentPosition;
+    private ViewPager viewPager;
+    private LinearLayout dotsLayout;
+    private SliderAdapter sliderAdapter;
+    private TextView[] dots;
+    private Button back_to_app;
+    private int currentPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,20 +41,24 @@ public class OnBoarding extends AppCompatActivity {
         viewPager.addOnPageChangeListener(changeListener);
     }
 
+    //Implement the skip button
     public void skip(View view){
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
     }
 
+    //Implement the next button
     public void next(View view){
         viewPager.setCurrentItem(currentPosition + 1);
     }
 
+    //Implement the back to home page button
     public void backHomePage(View view){
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
     }
 
+    //Add the dots to the screen
     private void addDots(int pos){
 
         dots = new TextView[5];
@@ -76,6 +77,7 @@ public class OnBoarding extends AppCompatActivity {
         }
     }
 
+    //when page is scrolled
     ViewPager.OnPageChangeListener changeListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
