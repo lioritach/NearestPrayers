@@ -17,12 +17,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.karumi.dexter.Dexter;
@@ -35,13 +33,13 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 public class map extends FragmentActivity implements OnMapReadyCallback{
 
-    GoogleMap map;
-
-    LocationManager locationManager;
-    LocationListener locationListener;
-    LatLng userLatLang;
-
-    DatabaseReference firebaseDatabase;
+    private GoogleMap map;
+    private ChildEventListener mChildEventListener;
+    private LocationManager locationManager;
+    private LocationListener locationListener;
+    private LatLng userLatLang;
+    private Marker marker;
+    private DatabaseReference firebaseDatabase;
 
 
 
@@ -53,7 +51,9 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
+        ChildEventListener mChildEventListener;
+        firebaseDatabase = FirebaseDatabase.getInstance().getReference("syn");
+        firebaseDatabase.push().setValue(marker);
     }
 
 
@@ -62,68 +62,39 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
     public void onMapReady(GoogleMap googleMap) {
 
         map = googleMap;
-        firebaseDatabase = FirebaseDatabase.getInstance().getReference();
+        //googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
-        firebaseDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        myLocation();
+
+        
+    private void myLocation() {
+        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new LocationListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot s : dataSnapshot.getChildren()){
-                    String lat = s.child("lat").getValue().toString();
-                    String lon = s.child("lon").getValue().toString();
-
-                    double latit = Double.parseDouble(lat);
-                    double longi = Double.parseDouble(lon);
-                    LatLng result = new LatLng(latit, longi);
-                    map.addMarker(new MarkerOptions().position(result).title(s.child("syn").getValue().toString()));
-                }
+            public void onLocationChanged(Location location) {
+                // The current location for the user
+                userLatLang = new LatLng(location.getLatitude(), location.getLongitude());
+                map.addMarker(new MarkerOptions().position(userLatLang).title("מיקומך הנוכחי"));
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onStatusChanged(String provider, int status, Bundle extras) {
 
             }
-        });
 
-//        map = googleMap;
-//        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-//        locationListener = new LocationListener() {
-//            @Override
-//            public void onLocationChanged(Location location) {
-//
-//                // The current location for the user
-//                userLatLang = new LatLng(location.getLatitude(), location.getLongitude());
-//                map.clear();
-//                map.addMarker(new MarkerOptions().position(userLatLang).title("מיקומך הנוכחי"));
-//
-//                // list of synagogues placed in BeerSheva
-//                LatLng coordinate = new LatLng(31.276773809000076, 34.81128199400007);
-//                map.addMarker(new MarkerOptions().position(coordinate).title("בית כנסת רמות - הר חברון, רחוב הר תבור שכונת רמות"));
-//
-//                LatLng coordinate1 = new LatLng(31.27723492000007, 34.80748855500008);
-//                map.addMarker(new MarkerOptions().position(coordinate1).title("בית כנסת רמות אור, רחוב הר רמון שכונת רמות"));
-//
-//            }
-//
-//            @Override
-//            public void onStatusChanged(String provider, int status, Bundle extras) {
-//
-//            }
-//
-//            @Override
-//            public void onProviderEnabled(String provider) {
-//
-//            }
-//
-//            @Override
-//            public void onProviderDisabled(String provider) {
-//
-//            }
-//        };
+            @Override
+            public void onProviderEnabled(String provider) {
 
-        //askLocationPermission();
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+        };
+        askLocationPermission();
 
     }
-
 
 
     private void askLocationPermission() {
@@ -131,14 +102,13 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
             @Override
             public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
                 if (ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
                     return;
                 }
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
                 Location lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 userLatLang = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
                 map.clear();
-                map.addMarker(new MarkerOptions().position(userLatLang).title("Your Location"));
+                map.addMarker(new MarkerOptions().position(userLatLang).title("מיקומך הנוכחי"));
                 map.moveCamera(CameraUpdateFactory.newLatLng(userLatLang));
             }
 
