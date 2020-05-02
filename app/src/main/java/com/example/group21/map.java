@@ -66,6 +66,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
 
         myLocation();
         
+        //get the locations from db
         firebaseDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -111,6 +112,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
 
             }
         };
+        //ask for user current location
         askLocationPermission();
 
     }
