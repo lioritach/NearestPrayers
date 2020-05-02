@@ -65,6 +65,25 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
         //googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         myLocation();
+        
+        firebaseDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot s : dataSnapshot.getChildren()){
+                    SynagogueInformation synagogueInformation = s.getValue(SynagogueInformation.class);
+                    LatLng result = new LatLng(Double.parseDouble(synagogueInformation.getLat()), Double.parseDouble(synagogueInformation.getLon()));
+                    map.addMarker(new MarkerOptions().position(result).title(synagogueInformation.getName()));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
 
         
     private void myLocation() {
