@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     Toolbar toolbar;
     FirebaseAuth auth;
-    CardView book,zmani_hayum;;
+    CardView book, zmani_hayum, halacha_yomit;
 
 
 
@@ -39,7 +39,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         zmani_hayum = (CardView) findViewById(R.id.zmaniHayum_cardID);
         zmani_hayum.setOnClickListener(this);
-
+        
+        halacha_yomit = (CardView) findViewById(R.id.halacha_yomit_cardID);
+        halacha_yomit.setOnClickListener(this);
         /*--------Hooks---------*/
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -129,7 +131,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(this, Siddur.class);
                 startActivity(intent);
                 break;
-
+                
+           case R.id.halacha_yomit_cardID:
+                intent = new Intent(this, HalachaYomit.class);
+                startActivity(intent);
+                break;
+                
             case R.id.zmaniHayum_cardID:
                 intent = new Intent(this, ZmaniHayum.class);
                 startActivity(intent);
