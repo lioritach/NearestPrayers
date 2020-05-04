@@ -65,15 +65,15 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
         //googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         myLocation();
-        
-        //get the locations from db
+
         firebaseDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot s : dataSnapshot.getChildren()){
                     SynagogueInformation synagogueInformation = s.getValue(SynagogueInformation.class);
                     LatLng result = new LatLng(Double.parseDouble(synagogueInformation.getLat()), Double.parseDouble(synagogueInformation.getLon()));
-                    map.addMarker(new MarkerOptions().position(result).title(synagogueInformation.getName()));
+                    map.addMarker(new MarkerOptions().position(result).title(synagogueInformation.getName() + "," + synagogueInformation.getNeighborho() + "," + synagogueInformation.getStreet()));
+                    
                 }
             }
 
@@ -85,8 +85,6 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
 
     }
 
-
-        
     private void myLocation() {
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -112,7 +110,6 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
 
             }
         };
-        //ask for user current location
         askLocationPermission();
 
     }
@@ -127,10 +124,10 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
                 }
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
                 Location lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                userLatLang = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
-                map.clear();
-                map.addMarker(new MarkerOptions().position(userLatLang).title("מיקומך הנוכחי"));
-                map.moveCamera(CameraUpdateFactory.newLatLng(userLatLang));
+                //userLatLang = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
+                //map.clear();
+                //map.addMarker(new MarkerOptions().position(userLatLang).title("מיקומך הנוכחי"));
+                //map.moveCamera(CameraUpdateFactory.newLatLng(userLatLang));
             }
 
             @Override
