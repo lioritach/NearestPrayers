@@ -23,6 +23,8 @@ public class MainActivityTest {
     private MainActivity mainActivity = null;
 
     Instrumentation.ActivityMonitor monitorSiddur = getInstrumentation().addMonitor(Siddur.class.getName(), null, false);
+    Instrumentation.ActivityMonitor monitorZmaniHayum = getInstrumentation().addMonitor(ZmaniHayum.class.getName(), null, false);
+    Instrumentation.ActivityMonitor monitorMap = getInstrumentation().addMonitor(map.class.getName(), null, false);
 
 
     @Before
@@ -31,16 +33,19 @@ public class MainActivityTest {
     }
 
 
+    //test for Siddur Card View
     @Test
-    public void testCardViewSiddur(){
+    public void SiddurTestCardView(){
         assertNotNull(mainActivity.findViewById(R.id.siddur_cardID));
 
         onView(withId(R.id.siddur_cardID)).perform(click());
+        onView(withId(R.id.ashkenaz)).perform(click());
         Activity Siddur = getInstrumentation().waitForMonitorWithTimeout(monitorSiddur, 5000);
         assertNotNull(Siddur);
         Siddur.finish();
     }
-    
+
+    //test for ZmaniHayum Card View
     @Test
     public void ZmaniHayumTestCardView(){
 
@@ -51,6 +56,28 @@ public class MainActivityTest {
         ZmaniHayum.finish();
 
     }
+
+    //test for HalachaYomit Card View
+    @Test
+    public void HalachaYomitTestCardView(){
+
+        assertNotNull(mainActivity.findViewById(R.id.halacha_yomit_cardID));
+        onView(withId(R.id.halacha_yomit_cardID)).perform(click());
+
+    }
+
+    //test for map Card View
+    @Test
+    public void mapTestActivity(){
+        assertNotNull(mainActivity.findViewById(R.id.findMinyan_cardID));
+        onView(withId(R.id.findMinyan_cardID)).perform(click());
+        Activity map = getInstrumentation().waitForMonitorWithTimeout(monitorMap, 5000);
+        assertNotNull(map);
+        map.finish();
+    }
+
+
+
 
     @After
     public void tearDown() throws Exception {
