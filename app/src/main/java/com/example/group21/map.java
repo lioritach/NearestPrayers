@@ -1,7 +1,6 @@
 package com.example.group21;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
@@ -11,7 +10,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -41,7 +39,6 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
     private LatLng userLatLang;
     private Marker marker;
     private DatabaseReference firebaseDatabase;
-    //private SynagogueInformation synagogueInformation;
 
 
 
@@ -57,6 +54,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("syn");
         firebaseDatabase.push().setValue(marker);
 
+
     }
 
 
@@ -71,13 +69,13 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
 
 
         firebaseDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot s : dataSnapshot.getChildren()){
                     SynagogueInformation synagogueInformation = s.getValue(SynagogueInformation.class);
                     LatLng result = new LatLng(Double.parseDouble(synagogueInformation.getLat()), Double.parseDouble(synagogueInformation.getLon()));
-                    map.addMarker(new MarkerOptions().position(result).title(synagogueInformation.getName()));
-                    
+                    map.addMarker(new MarkerOptions().position(result).title(synagogueInformation.getName() + ", " + synagogueInformation.getStreet() + ", " + synagogueInformation.getNeighborho()));
                 }
             }
 
