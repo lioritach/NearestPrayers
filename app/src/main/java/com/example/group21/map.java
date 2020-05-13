@@ -1,6 +1,7 @@
 package com.example.group21;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
@@ -40,6 +41,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
     private LatLng userLatLang;
     private Marker marker;
     private DatabaseReference firebaseDatabase;
+    //private SynagogueInformation synagogueInformation;
 
 
 
@@ -54,6 +56,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
         ChildEventListener mChildEventListener;
         firebaseDatabase = FirebaseDatabase.getInstance().getReference("syn");
         firebaseDatabase.push().setValue(marker);
+
     }
 
 
@@ -65,6 +68,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
         //googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
         myLocation();
+
 
         firebaseDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -124,10 +128,10 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
                 }
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
                 Location lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                //userLatLang = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
-                //map.clear();
-                //map.addMarker(new MarkerOptions().position(userLatLang).title("מיקומך הנוכחי"));
-                //map.moveCamera(CameraUpdateFactory.newLatLng(userLatLang));
+//                userLatLang = new LatLng(lastLocation.getLatitude(), lastLocation.getLongitude());
+//                map.clear();
+//                map.addMarker(new MarkerOptions().position(userLatLang).title("מיקומך הנוכחי"));
+//                map.moveCamera(CameraUpdateFactory.newLatLng(userLatLang));
             }
 
             @Override
