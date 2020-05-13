@@ -39,7 +39,7 @@ pipeline {
       //Send to mail the status of the pipeline
        mail to: 'lioritach1@gmail.com',
           subject: "The status of your last pipeline build is: ${currentBuild.fullDisplayName}",
-          body: "${env.BUILD_URL} has result ${currentBuild.result}"
+          body: "${env.BUILD_URL} has result ${currentBuild.result} and ${BUILD_URL}/consoleText"
     }
   }
 }
