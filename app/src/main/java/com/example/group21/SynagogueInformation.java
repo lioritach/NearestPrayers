@@ -2,18 +2,34 @@ package com.example.group21;
 
 public class SynagogueInformation {
 
-    private String name;
-    private String lat, lon;
-
+    public String name, lat, lon, street, neighborho;
 
 
     public SynagogueInformation() {
     }
 
-    public SynagogueInformation(String name, String lat, String lon) {
+    public SynagogueInformation(String name, String lat, String lon, String street, String neighborho) {
         this.name = name;
         this.lat = lat;
         this.lon = lon;
+        this.street = street;
+        this.neighborho = neighborho;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getNeighborho() {
+        return neighborho;
+    }
+
+    public void setNeighborho(String neighborho) {
+        this.neighborho = neighborho;
     }
 
     public String getName() {
@@ -24,13 +40,14 @@ public class SynagogueInformation {
         this.name = name;
     }
 
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
     public String getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
-        this.lat = lat;
-    }
 
     public String getLon() {
         return lon;
