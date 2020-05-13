@@ -76,7 +76,7 @@ public class map extends FragmentActivity implements OnMapReadyCallback{
                 for(DataSnapshot s : dataSnapshot.getChildren()){
                     SynagogueInformation synagogueInformation = s.getValue(SynagogueInformation.class);
                     LatLng result = new LatLng(Double.parseDouble(synagogueInformation.getLat()), Double.parseDouble(synagogueInformation.getLon()));
-                    map.addMarker(new MarkerOptions().position(result).title(synagogueInformation.getName() + "," + synagogueInformation.getNeighborho() + "," + synagogueInformation.getStreet()));
+                    map.addMarker(new MarkerOptions().position(result).title(synagogueInformation.getName()));
                     
                 }
             }
