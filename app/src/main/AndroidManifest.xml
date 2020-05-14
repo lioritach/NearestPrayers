@@ -21,7 +21,7 @@
 <!--        <activity android:name=".ForgotPassowrdGabay" />-->
 <!--        <activity android:name=".GabayLogin" />-->
 <!--        <activity android:name=".GabayRegister" />-->
-        <activity android:name=".MainActivity" />
+<!--         <activity android:name=".MainActivity" /> -->
 <!--        <activity android:name=".MainGabayActivity" />-->
 <!--        <activity android:name=".databaseReader" />-->
         <activity android:name=".ContactUs" />
