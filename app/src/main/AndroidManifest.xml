@@ -25,7 +25,7 @@
 <!--        <activity android:name=".MainGabayActivity" />-->
 <!--        <activity android:name=".databaseReader" />-->
         <activity android:name=".ContactUs" />
-        <activity android:name=".RateUs" />
+<!--         <activity android:name=".RateUs" /> -->
         <activity android:name=".Payment.PaymentDetails" />
         <activity android:name=".Payment.Payment" />
         <activity android:name=".HalachaYomit" />
