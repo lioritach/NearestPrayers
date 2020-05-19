@@ -15,8 +15,8 @@ import com.example.group21.R;
 
 public class SliderAdapter extends PagerAdapter {
 
-    Context context;
-    LayoutInflater layoutInflater;
+    private Context context;
+    private LayoutInflater layoutInflater;
 
     public SliderAdapter(Context context) {
         this.context = context;
