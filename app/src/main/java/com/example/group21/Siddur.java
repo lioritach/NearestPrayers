@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class Siddur extends AppCompatActivity {
 
-    TextView ashkenaz_view, sfaradi_view;
+    private TextView ashkenaz_view, sfaradi_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
