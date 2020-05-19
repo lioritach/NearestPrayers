@@ -9,10 +9,10 @@ import android.widget.EditText;
 
 public class ContactUs extends AppCompatActivity {
 
-    EditText ourEmailData;
-    EditText messageData;
-    EditText subjectData;
-    Button send;
+    private EditText ourEmailData;
+    private EditText messageData;
+    private EditText subjectData;
+    private Button send;
 
 
     @Override
