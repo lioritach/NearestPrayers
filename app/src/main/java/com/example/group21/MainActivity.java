@@ -21,11 +21,11 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     //for the toolbar and navigationView
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    Toolbar toolbar;
-    FirebaseAuth auth;
-    CardView book, zmani_hayum, halacha_yomit;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
+    private FirebaseAuth auth;
+    private CardView book, zmani_hayum, halacha_yomit;
 
 
 
