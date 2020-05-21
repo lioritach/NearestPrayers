@@ -40,7 +40,7 @@ pipeline {
                   junit '**/*.xml'
           }
           failure {
-             mail to: 'team3sce@gmail.com',
+             mail to: 'lioritach1@gmail.com',
                 subject: "Status of pipeline: ${currentBuild.fullDisplayName}",
                 body: "${env.BUILD_URL} has result ${currentBuild.result} and ${BUILD_URL}/consoleText"
           }
