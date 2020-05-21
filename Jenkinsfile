@@ -35,7 +35,10 @@ pipeline {
     }
   }
       post {
-    always {
+    always{
+                  sh 'find . -name "TEST-*.xml" -exec touch {} \\;'
+                  junit '**/*.xml'
+          }
       //Send to mail the status of the pipeline
        mail to: 'lioritach1@gmail.com',
           subject: "The status of your last pipeline build is: ${currentBuild.fullDisplayName}",
