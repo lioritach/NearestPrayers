@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteColor"
+    tools:context=".Authentication.GabayRegister">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="10dp"
+        android:background="@drawable/shape_rect01">
+
+        <ImageButton
+            android:id="@+id/backRegisterGabayID"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back_white"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="הירשם"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:textColor="@color/whiteColor"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iconIv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_circle01"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/ic_key_white"
+        android:padding="5dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+        android:id="@+id/profileGabay"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        app:c_border="true"
+        app:c_border_color="@color/bg"
+        app:c_border_width="1dp"
+        android:src="@drawable/ic_person_gray"
+        android:layout_below="@id/iconIv"/>
+
+    <EditText
+        android:id="@+id/nameGabayID"
+        android:layout_below="@+id/profileGabay"
+        android:hint="שם מלא"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_person_gray"
+        android:drawablePadding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_rect02"
+        android:inputType="textPersonName|textCapWords"
+        android:drawableLeft="@drawable/ic_mail_gray"/>
+
+    <EditText
+        android:id="@+id/phoneGabayID"
+        android:layout_below="@+id/nameGabayID"
+        android:hint="טלפון"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_phone_gray"
+        android:drawablePadding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_rect02"
+        android:inputType="phone"
+        android:drawableLeft="@drawable/ic_mail_gray"/>
+
+
+    <EditText
+        android:id="@+id/EmailGabayID"
+        android:layout_below="@+id/phoneGabayID"
+        android:hint="מייל"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_mail_gray"
+        android:drawablePadding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_rect02"
+        android:inputType="textEmailAddress"
+        android:drawableLeft="@drawable/ic_mail_gray"/>
+
+<!--    <EditText-->
+<!--        android:id="@+id/gabaySynNameID"-->
+<!--        android:layout_below="@+id/EmailGabayID"-->
+<!--        android:hint="שם בית הכנסת"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="10dp"-->
+<!--        android:drawableStart="@drawable/icons8_synagogue_40"-->
+<!--        android:drawablePadding="5dp"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:background="@drawable/shape_rect02"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:drawableLeft="@drawable/icons8_synagogue_40" />-->
+
+    <EditText
+        android:id="@+id/passwordGabayID"
+        android:layout_below="@+id/EmailGabayID"
+        android:hint="סיסמא"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_lock_gray"
+        android:drawablePadding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_rect02"
+        android:inputType="textPassword"
+        android:drawableLeft="@drawable/ic_key_gray"/>
+
+    <EditText
+        android:id="@+id/passwordAgainGabayID"
+        android:layout_below="@+id/passwordGabayID"
+        android:hint="הזן סיסמא שנית"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_lock_gray"
+        android:drawablePadding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_rect02"
+        android:inputType="textPassword"
+        android:drawableLeft="@drawable/ic_key_gray"/>
+
+
+    <Button
+        android:id="@+id/registerGabayButtonID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="הירשם"
+        android:textColor="@color/whiteColor"
+        android:textStyle="bold"
+        android:background="@drawable/shape_rect01"
+        android:minWidth="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/passwordAgainGabayID"/>
+
+
+
+</RelativeLayout>

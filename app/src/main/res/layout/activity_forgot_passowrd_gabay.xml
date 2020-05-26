@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteColor"
+    tools:context=".ForgotPassowrdGabay">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="10dp"
+        android:background="@drawable/shape_rect01">
+        
+        <ImageButton
+            android:id="@+id/backForgotPassGabayID"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back_white"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="שחזר סיסמא"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:textColor="@color/whiteColor"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iconIv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/shape_circle01"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/ic_key_white"
+        android:padding="5dp"
+        android:layout_marginBottom="40dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/EmailGabayID"
+        android:layout_below="@+id/iconIv"
+        android:hint="מייל"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:drawableStart="@drawable/ic_mail_gray"
+        android:drawablePadding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_rect02"
+        android:inputType="textEmailAddress"
+        android:drawableLeft="@drawable/ic_mail_gray"/>
+
+
+    <Button
+        android:id="@+id/recoverPassGabayID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="שחזר"
+        android:textColor="@color/whiteColor"
+        android:textStyle="bold"
+        android:background="@drawable/shape_rect01"
+        android:minWidth="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/EmailGabayID"/>
+
+
+
+
+
+
+</RelativeLayout>
