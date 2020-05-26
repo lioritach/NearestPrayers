@@ -11,21 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-<!--        <activity android:name=".ShowMySynagogues"></activity>-->
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:launchMode="standard"
             tools:replace="android:launchMode" />
-<!--        <activity android:name=".AddSynagogue" />-->
-<!--        <activity android:name=".GabayEditProfile" />-->
-<!--        <activity android:name=".ForgotPassowrdGabay" />-->
-<!--        <activity android:name=".GabayLogin" />-->
-<!--        <activity android:name=".GabayRegister" />-->
-<!--         <activity android:name=".MainActivity" /> -->
-<!--        <activity android:name=".MainGabayActivity" />-->
-<!--        <activity android:name=".databaseReader" />-->
+        <activity android:name=".ForgotPassowrdGabay" />
+        <activity android:name=".GabayLogin" />
+        <activity android:name=".GabayRegister" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".MainGabayActivity" />
         <activity android:name=".ContactUs" />
-<!--         <activity android:name=".RateUs" /> -->
         <activity android:name=".Payment.PaymentDetails" />
         <activity android:name=".Payment.Payment" />
         <activity android:name=".HalachaYomit" />
@@ -33,13 +28,11 @@
         <activity android:name=".Synagogue" />
         <activity android:name=".ZmaniHayum" />
         <activity android:name=".map" />
-        <activity android:name=".Authentication.Register" />
-        <activity android:name=".Authentication.Login" />
         <activity android:name=".Sfaradi" />
         <activity android:name=".Ashkenaz" />
         <activity android:name=".Siddur" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,11 +50,11 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<!--    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-<!--    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
