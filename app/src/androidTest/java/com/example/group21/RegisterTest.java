@@ -6,6 +6,7 @@ import android.widget.EditText;
 
 import androidx.test.rule.ActivityTestRule;
 
+import com.example.group21.Authentication.GabayRegister;
 import com.example.group21.Authentication.Register;
 
 import org.junit.After;
@@ -22,10 +23,10 @@ import static org.junit.Assert.*;
 public class RegisterTest {
 
     @Rule
-    public ActivityTestRule<Register> registerActivityTestRule = new ActivityTestRule<Register>(Register.class);
-    private Register mRegister = null;
+    public ActivityTestRule<GabayRegister> registerActivityTestRule = new ActivityTestRule<GabayRegister>(GabayRegister.class);
+    private GabayRegister mRegister = null;
 
-    Instrumentation.ActivityMonitor monitorRegister = getInstrumentation().addMonitor(Register.class.getName(), null, false);
+    Instrumentation.ActivityMonitor monitorRegister = getInstrumentation().addMonitor(GabayRegister.class.getName(), null, false);
 
     @Before
     public void setUp() throws Exception {
