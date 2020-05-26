@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -25,9 +26,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Toolbar toolbar;
     private FirebaseAuth auth;
-    private CardView book, zmani_hayum, halacha_yomit;
-
-
+    private CardView book, zmani_hayum, syn, minyan, halacha_yomit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +38,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         zmani_hayum = (CardView) findViewById(R.id.zmaniHayum_cardID);
         zmani_hayum.setOnClickListener(this);
-        
+
+        syn = (CardView) findViewById(R.id.synagogue_cardID);
+        syn.setOnClickListener(this);
+
+        minyan = (CardView) findViewById(R.id.findMinyan_cardID);
+        minyan.setOnClickListener(this);
+
         halacha_yomit = (CardView) findViewById(R.id.halacha_yomit_cardID);
         halacha_yomit.setOnClickListener(this);
+
         /*--------Hooks---------*/
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -49,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /*--------Tool bar---------*/
         setSupportActionBar(toolbar);
+
 
         /*--------Navigation Drawer Menu ---------*/
         navigationView.bringToFront();
@@ -62,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     /**
-     * implement the toolbar options.
+     * implement the toolbar options
      * @param menuItem
      * @return true
      */
@@ -70,24 +77,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.nav_login:
-                Intent nav_login_intent = new Intent(MainActivity.this, Login.class);
+                Intent nav_login_intent = new Intent(MainActivity.this, GabayLogin.class);
                 startActivity(nav_login_intent);
+
                 break;
-            case R.id.nav_logout:
-                Intent nav_logout_intent = new Intent(MainActivity.this, Login.class);
-                FirebaseAuth.getInstance().signOut();
-                startActivity(nav_logout_intent);
-                finish();
-                break;
+//            case R.id.nav_logout:
+//                Intent nav_logout_intent = new Intent(MainActivity.this, Login.class);
+//                FirebaseAuth.getInstance().signOut();
+//                startActivity(nav_logout_intent);
+//                finish();
+//                break;
             case R.id.nav_payment:
                 Intent nav_payment_intent = new Intent(MainActivity.this, Payment.class);
                 startActivity(nav_payment_intent);
                 break;
+            case R.id.nav_contactUs:
+                Intent nav_contactUs_intent = new Intent(MainActivity.this, ContactUs.class);
+                startActivity(nav_contactUs_intent);
+                break;
+            case R.id.nav_rate:
+                Intent nav_rateUs_intent = new Intent(MainActivity.this, RateUs.class);
+                startActivity(nav_rateUs_intent);
+                break;
             case R.id.nav_share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
-                String shareBody = "היי, משתף לך קישור לאפליקציית מציאת מניינים בבאר שבע, תוריד גם! או חפש -יגעת ומצאת- בגוגל :) ";
                 String shareSub = "אפליקציית NearestPrayers";
+                String shareBody = "היי, רציתי להמליץ לך על אפליקצית מציאת מניינים הקרובים אלייך, חפש עכשיו 'יגעת ומצאת' ב Google Play :)";
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
                 shareIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(shareIntent, "שתף באמצעות"));
@@ -96,11 +112,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent nav_help_intent = new Intent(MainActivity.this, OnBoarding.class);
                 startActivity(nav_help_intent);
                 break;
-            case R.id.nav_contactUs:
-                Intent nav_contactUs_intent = new Intent(MainActivity.this, ContactUs.class);
-                startActivity(nav_contactUs_intent);
-                break;
-
 
         }
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -131,15 +142,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(this, Siddur.class);
                 startActivity(intent);
                 break;
-                
-           case R.id.halacha_yomit_cardID:
-                intent = new Intent(this, HalachaYomit.class);
-                startActivity(intent);
-                break;
-                
             case R.id.zmaniHayum_cardID:
                 intent = new Intent(this, ZmaniHayum.class);
                 startActivity(intent);
+                break;
+            case R.id.synagogue_cardID:
+                intent = new Intent(this, Synagogue.class);
+                startActivity(intent);
+                break;
+            case R.id.findMinyan_cardID:
+                intent = new Intent(this, map.class);
+                startActivity(intent);
+                break;
+            case R.id.halacha_yomit_cardID:
+                intent = new Intent(this, HalachaYomit.class);
+                startActivity(intent);
+                break;
         }
 
     }
