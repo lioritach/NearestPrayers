@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditSynagogueActivity">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:background="@drawable/shape_rect01">
+
+        <ImageButton
+            android:id="@+id/backAddSynGabayID"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back_white"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="ערוך בית כנסת"
+            android:textColor="@color/whiteColor"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <ImageButton
+            android:id="@+id/gpsAddSynGabayID"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_gps_gray"
+            android:layout_alignParentEnd="true"
+            android:background="@null"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+    <!--Form to input data-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+            android:id="@+id/synIconAddID"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/icons8_synagogue_40"
+            app:c_border="true"
+            app:c_border_color="@color/bg"
+            app:c_border_width="1dp"/>
+
+        <EditText
+            android:id="@+id/titleAddSynID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_rect02"
+            android:drawableStart="@drawable/ic_title_gray"
+            android:drawableLeft="@drawable/ic_title_gray"
+            android:drawablePadding="10dp"
+            android:hint="שם בית הכנסת"
+            android:inputType="textPersonName|textCapWords"
+            android:padding="10dp"
+            android:layout_below="@id/synIconAddID"/>
+
+        <LinearLayout
+            android:id="@+id/a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_below="@id/titleAddSynID"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/CountryAddSynID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape_rect02"
+                android:drawableStart="@drawable/ic_location_gray"
+                android:drawableLeft="@drawable/ic_location_gray"
+                android:drawablePadding="5dp"
+                android:hint="מדינה"
+                android:inputType="textPostalAddress"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:layout_below="@id/titleAddSynID"/>
+
+            <EditText
+                android:id="@+id/StateAddSynID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape_rect02"
+                android:drawableStart="@drawable/ic_location_gray"
+                android:drawableLeft="@drawable/ic_location_gray"
+                android:drawablePadding="5dp"
+                android:hint="מחוז"
+                android:inputType="textPostalAddress"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:layout_below="@id/titleAddSynID"/>
+
+            <EditText
+                android:id="@+id/CityAddSynID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape_rect02"
+                android:drawableStart="@drawable/ic_location_gray"
+                android:drawableLeft="@drawable/ic_location_gray"
+                android:drawablePadding="5dp"
+                android:hint="עיר"
+                android:inputType="textPostalAddress"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:layout_below="@id/titleAddSynID"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/fullAddressAddSynID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_rect02"
+            android:drawableStart="@drawable/ic_location_gray"
+            android:drawableLeft="@drawable/ic_location_gray"
+            android:drawablePadding="10dp"
+            android:hint="כתובת מלאה של בית הכנסת"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:layout_below="@id/a"/>
+
+        <TextView
+            android:id="@+id/categoryAddSynID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fullAddressAddSynID"
+            android:layout_margin="5dp"
+            android:drawableEnd="@drawable/ic_down_gray"
+            android:drawableRight="@drawable/ic_down_gray"
+            android:background="@drawable/shape_rect02"
+            android:drawableStart="@drawable/ic_category_gray"
+            android:drawablePadding="10dp"
+            android:inputType="textPostalAddress"
+            android:padding="10dp"
+            android:hint="בחר את נוסח התפילה"
+            android:drawableLeft="@drawable/ic_category_gray" />
+
+        <LinearLayout
+            android:id="@+id/a2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_below="@id/categoryAddSynID"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/ArvitAddSynID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape_rect02"
+                android:drawableStart="@drawable/ic_time_gray"
+                android:drawableLeft="@drawable/ic_time_gray"
+                android:drawablePadding="10dp"
+                android:hint="ערבית"
+                android:inputType="time"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:layout_below="@id/categoryAddSynID"/>
+
+            <EditText
+                android:id="@+id/MinhaAddSynID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape_rect02"
+                android:drawableStart="@drawable/ic_time_gray"
+                android:drawableLeft="@drawable/ic_time_gray"
+                android:drawablePadding="10dp"
+                android:hint="מנחה"
+                android:layout_weight="1"
+                android:inputType="time"
+                android:padding="10dp"
+                android:layout_below="@id/categoryAddSynID"/>
+
+            <EditText
+                android:id="@+id/ShacharitAddSynID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape_rect02"
+                android:drawableStart="@drawable/ic_time_gray"
+                android:drawableLeft="@drawable/ic_time_gray"
+                android:drawablePadding="10dp"
+                android:hint="שחרית"
+                android:layout_weight="1"
+                android:inputType="time"
+                android:padding="10dp"
+                android:layout_below="@id/categoryAddSynID"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/EventsAddSynID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_rect02"
+            android:drawableStart="@drawable/ic_time_gray"
+            android:drawableLeft="@drawable/ic_time_gray"
+            android:drawablePadding="10dp"
+            android:hint="אירוע/שמחה/אזכרה בבית הכנסת"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:layout_below="@id/a2"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/NegishutAddSynID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/EventsAddSynID"
+            android:text="קיימת נגישות בבית הכנסת?"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorGray"
+            android:gravity="center_horizontal" />
+
+        <EditText
+            android:id="@+id/NegishutNehimAddSynID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_rect02"
+            android:drawableStart="@drawable/ic_nehim_gray"
+            android:drawableLeft="@drawable/ic_nehim_gray"
+            android:drawablePadding="10dp"
+            android:hint="נגישות לנכים (כן/לא)"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:layout_below="@id/NegishutAddSynID"/>
+
+        <EditText
+            android:id="@+id/NegishutAzratNashimAddSynID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_rect02"
+            android:drawablePadding="10dp"
+            android:hint="יש עזרת נשים? (כן/לא)"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:layout_below="@id/NegishutNehimAddSynID"/>
+
+        <Button
+            android:id="@+id/updateSynButtonID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ערוך"
+            android:background="@color/bg"
+            android:textColor="@color/whiteColor"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/NegishutAzratNashimAddSynID"
+            android:minWidth="150dp"
+            android:layout_marginTop="5dp"/>
+    </RelativeLayout>
+
+</LinearLayout>
