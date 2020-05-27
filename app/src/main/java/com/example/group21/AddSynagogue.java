@@ -130,7 +130,8 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
                 categoryDialog();
             }
         });
-
+        
+        //implement addSyn button
         addSynButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
