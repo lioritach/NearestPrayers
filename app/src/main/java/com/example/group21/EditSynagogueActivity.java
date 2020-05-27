@@ -161,7 +161,8 @@ public class EditSynagogueActivity extends AppCompatActivity implements Location
                 categoryDialog();
             }
         });
-
+        
+        //implement updateSyn Button
         updateSynButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
