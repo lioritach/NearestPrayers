@@ -331,7 +331,8 @@ public class EditSynagogueActivity extends AppCompatActivity implements Location
         updateSyn();
 
     }
-
+    
+    //Update to db
     private void updateSyn() {
         //show progress
         progressDialog.setMessage("מעדכן פרטי בית הכנסת ...");
