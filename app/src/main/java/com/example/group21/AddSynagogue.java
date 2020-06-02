@@ -90,7 +90,6 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         countryAddSyn = (EditText) findViewById(R.id.CountryAddSynID);
         cityAddSyn = (EditText) findViewById(R.id.CityAddSynID);
         StateAddSyn = (EditText) findViewById(R.id.StateAddSynID);
-        // add Negishut
         NegishutNehimAddSyn = (EditText) findViewById(R.id.NegishutNehimAddSynID);
         NegishutAzratNashimAddSyn = (EditText) findViewById(R.id.NegishutAzratNashimAddSynID);
         negishutNoteAddSyn = (TextView) findViewById(R.id.negishutNoteID);
@@ -113,7 +112,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("אנא המתן");
         progressDialog.setCanceledOnTouchOutside(false);
-        // set visible off
+
         NegishutAzratNashimAddSyn.setVisibility(View.GONE);
         NegishutNehimAddSyn.setVisibility(View.GONE);
 
@@ -124,7 +123,6 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
             }
         });
 
-        //implement catagory button
         categoryAddSyn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,8 +130,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
                 categoryDialog();
             }
         });
-        
-        //implement addSyn button
+
         addSynButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,7 +140,6 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
                 inputData();
             }
         });
-        //add switch for Negishut
 
         switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -198,14 +194,10 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         shacharitAdd = ShacharitAddSyn.getText().toString().trim();
         minhaAdd = MinhaAddSyn.getText().toString().trim();
         arvitAdd = ArvitAddSyn.getText().toString().trim();
-        //get data
         negishutNehim = NegishutNehimAddSyn.getText().toString().trim();
         negishutWomen = NegishutAzratNashimAddSyn.getText().toString().trim();
-        //get text
         EventsAdd = EventsAddSyn.getText().toString().trim();
-        //get text
         fullAddressAdd = FullAddressAddSyn.getText().toString().trim();
-
         negishutAvailable = switchCompat.isChecked();
 
         //validate data
@@ -262,7 +254,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         String timestamp = "" + System.currentTimeMillis();
 
         if (image_uri == null) {
-            //upload without image
+            //upload without image.
 
             //setup data to upload
             HashMap<String, Object> hashMap = new HashMap<>();
@@ -270,18 +262,15 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
             hashMap.put("synName", "שם בית הכנסת: " + titleNameSyn);
             hashMap.put("city", "עיר: " + cityAdd);
             hashMap.put("country", "מדינה: " + countryAdd);
-            //data to database
             hashMap.put("fullAddress", "כתובת: " + fullAddressAdd);
             hashMap.put("category", "נוסח התפילה: " + categoryAdd);
             hashMap.put("shacharit", "שעת תפילת שחרית: " + shacharitAdd);
             hashMap.put("minha", "שעת תפילת מנחה: " + minhaAdd);
             hashMap.put("arvit", "שעת תפילת ערבית: " + arvitAdd);
-            //add Negishut in database
             hashMap.put("negishutNote", "" + negishutNote);
             hashMap.put("negishutAvailable", "נגישות: " + negishutAvailable);
             hashMap.put("negishut_nehim", "נגישות נכים: " + negishutNehim);
             hashMap.put("negishut_nashim", "עזרת נשים: " + negishutWomen);
-            //add data to database
             hashMap.put("events", "אירוע בבית הכנסת: " + EventsAdd);
             hashMap.put("synImage", "");
             hashMap.put("timestamp", "" + timestamp);
@@ -306,7 +295,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
                     });
         } else {
             String filePathName = "profile_images/" + "" + firebaseAuth.getUid();
-            //upload image
+            //upload image to db
             StorageReference storageReference = FirebaseStorage.getInstance().getReference(filePathName);
             storageReference.putFile(image_uri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -383,7 +372,6 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         synIconAdd.setImageResource(R.drawable.icons8_synagogue_40);
         image_uri = null;
     }
-    //choosing dialog
 
     private void categoryDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -400,6 +388,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
                 .show();
     }
 
+    //when user choose to pick a image
     private void showImagePickDialog() {
         String[] options = {"מצלמה", "גלרייה"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -431,6 +420,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
                 .show();
     }
 
+    //check for location permission
     private boolean checkLocationPermission() {
         boolean result = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) ==
@@ -440,6 +430,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
 
     }
 
+    //request for location permission
     private void requestLocationPermission() {
         ActivityCompat.requestPermissions(this, locationPermission, LOCATION_REQUEST_CODE);
     }
@@ -460,12 +451,14 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
     }
 
+    //pick image from gallery
     private void pickFromGallery(){
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         startActivityForResult(intent, IMAGE_PICK_GALLERY_CODE);
     }
 
+    //pick image from camera
     private void pickFromCamera(){
         ContentValues contentValues = new ContentValues();
         contentValues.put(MediaStore.Images.Media.TITLE, "Temp_image_Title");
