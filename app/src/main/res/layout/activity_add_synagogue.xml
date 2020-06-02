@@ -235,6 +235,8 @@
             android:textColor="@color/colorGray"
             android:gravity="center_horizontal" />
 
+        //add Negishut field
+
         <EditText
             android:id="@+id/NegishutNehimAddSynID"
             android:layout_width="match_parent"
