@@ -124,7 +124,7 @@
                 android:layout_weight="1"
                 android:layout_below="@id/titleAddSynID"/>
         </LinearLayout>
-
+        //add full address fiels
         <EditText
             android:id="@+id/fullAddressAddSynID"
             android:layout_width="match_parent"
