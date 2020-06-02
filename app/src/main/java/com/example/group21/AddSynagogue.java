@@ -124,6 +124,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
             }
         });
 
+        //implement catagory button
         categoryAddSyn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -382,6 +383,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         synIconAdd.setImageResource(R.drawable.icons8_synagogue_40);
         image_uri = null;
     }
+    //choosing dialog
 
     private void categoryDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

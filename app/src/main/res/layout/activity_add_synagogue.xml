@@ -139,6 +139,7 @@
             android:padding="10dp"
             android:layout_below="@id/a"/>
 
+        //add scroll menu for tfila version
         <TextView
             android:id="@+id/categoryAddSynID"
             android:layout_width="match_parent"
