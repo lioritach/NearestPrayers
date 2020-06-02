@@ -90,6 +90,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         countryAddSyn = (EditText) findViewById(R.id.CountryAddSynID);
         cityAddSyn = (EditText) findViewById(R.id.CityAddSynID);
         StateAddSyn = (EditText) findViewById(R.id.StateAddSynID);
+        // add Negishut
         NegishutNehimAddSyn = (EditText) findViewById(R.id.NegishutNehimAddSynID);
         NegishutAzratNashimAddSyn = (EditText) findViewById(R.id.NegishutAzratNashimAddSynID);
         negishutNoteAddSyn = (TextView) findViewById(R.id.negishutNoteID);
@@ -112,7 +113,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("אנא המתן");
         progressDialog.setCanceledOnTouchOutside(false);
-
+        // set visible off
         NegishutAzratNashimAddSyn.setVisibility(View.GONE);
         NegishutNehimAddSyn.setVisibility(View.GONE);
 
@@ -141,6 +142,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
                 inputData();
             }
         });
+        //add switch for Negishut
 
         switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -195,6 +197,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         shacharitAdd = ShacharitAddSyn.getText().toString().trim();
         minhaAdd = MinhaAddSyn.getText().toString().trim();
         arvitAdd = ArvitAddSyn.getText().toString().trim();
+        //get data
         negishutNehim = NegishutNehimAddSyn.getText().toString().trim();
         negishutWomen = NegishutAzratNashimAddSyn.getText().toString().trim();
         EventsAdd = EventsAddSyn.getText().toString().trim();
@@ -268,6 +271,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
             hashMap.put("shacharit", "שעת תפילת שחרית: " + shacharitAdd);
             hashMap.put("minha", "שעת תפילת מנחה: " + minhaAdd);
             hashMap.put("arvit", "שעת תפילת ערבית: " + arvitAdd);
+            //add Negishut in database
             hashMap.put("negishutNote", "" + negishutNote);
             hashMap.put("negishutAvailable", "נגישות: " + negishutAvailable);
             hashMap.put("negishut_nehim", "נגישות נכים: " + negishutNehim);
