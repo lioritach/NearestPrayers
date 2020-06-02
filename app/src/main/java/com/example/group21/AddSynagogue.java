@@ -200,6 +200,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         //get data
         negishutNehim = NegishutNehimAddSyn.getText().toString().trim();
         negishutWomen = NegishutAzratNashimAddSyn.getText().toString().trim();
+        //get text
         EventsAdd = EventsAddSyn.getText().toString().trim();
         fullAddressAdd = FullAddressAddSyn.getText().toString().trim();
         negishutAvailable = switchCompat.isChecked();
@@ -276,6 +277,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
             hashMap.put("negishutAvailable", "נגישות: " + negishutAvailable);
             hashMap.put("negishut_nehim", "נגישות נכים: " + negishutNehim);
             hashMap.put("negishut_nashim", "עזרת נשים: " + negishutWomen);
+            //add data to database
             hashMap.put("events", "אירוע בבית הכנסת: " + EventsAdd);
             hashMap.put("synImage", "");
             hashMap.put("timestamp", "" + timestamp);

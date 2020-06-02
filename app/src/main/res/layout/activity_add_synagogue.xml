@@ -208,7 +208,7 @@
             android:padding="10dp"
             android:layout_below="@id/categoryAddSynID"/>
         </LinearLayout>
-
+        //add special event field
         <EditText
             android:id="@+id/EventsAddSynID"
             android:layout_width="match_parent"
