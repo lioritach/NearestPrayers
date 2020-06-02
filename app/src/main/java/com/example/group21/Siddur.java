@@ -23,6 +23,7 @@ public class Siddur extends AppCompatActivity {
         ashkenaz_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Add Button for Ashkenaz
                 startActivity(new Intent(getApplicationContext(),Ashkenaz.class));
 
             }
