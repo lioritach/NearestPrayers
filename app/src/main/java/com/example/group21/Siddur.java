@@ -32,6 +32,7 @@ public class Siddur extends AppCompatActivity {
         sfaradi_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Add Button for Sfaradi
                 startActivity(new Intent(getApplicationContext(),Sfaradi.class));
 
             }
