@@ -145,10 +145,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(this, ZmaniHayum.class);
                 startActivity(intent);
                 break;
-            case R.id.synagogue_cardID:
-                intent = new Intent(this, Synagogue.class);
-                startActivity(intent);
-                break;
+//            case R.id.synagogue_cardID:
+//                intent = new Intent(this, Synagogue.class);
+//                startActivity(intent);
+//                break;
             case R.id.findMinyan_cardID:
                 intent = new Intent(this, map.class);
                 startActivity(intent);
