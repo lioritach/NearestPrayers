@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainGabayActivity">
+    
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="175dp"
+                android:layout_marginTop="100dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/synagogue_cardID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:clickable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/synagogue_imageID"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="false"
+                            android:layout_marginTop="15dp"
+                            app:srcCompat="@drawable/icons8_synagogue_40" />
+
+                        <TextView
+                            android:id="@+id/synagogue_textID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/synagogue_imageID"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/aclonica"
+                            android:text="בתי כנסת"
+                            android:textSize="24sp" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/siddur_cardID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:clickable="true">
+
+                    <RelativeLayout
+                        android:layout_width="168dp"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/Siddur_image_id"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            app:srcCompat="@drawable/icons8_open_book_64" />
+
+                        <TextView
+                            android:id="@+id/siddur_textID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/Siddur_image_id"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/aclonica"
+                            android:text="סידור"
+                            android:textSize="24sp" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="0dp"
+                android:layout_height="175dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/zmaniHayum_cardID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:clickable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/zmaniHayum_imageID"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="false"
+                            android:layout_marginTop="15dp"
+                            app:srcCompat="@drawable/icons8_clock_64" />
+
+                        <TextView
+                            android:id="@+id/zmaniHayum_textID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/zmaniHayum_imageID"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/aclonica"
+                            android:text="זמני היום"
+                            android:textSize="24sp" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/findMinyan_cardID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:clickable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/findMinyan_imageID"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            app:srcCompat="@drawable/icons8_location_128" />
+
+                        <TextView
+                            android:id="@+id/findMinyan_textID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/findMinyan_imageID"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/aclonica"
+                            android:text="מצא מניין קרוב"
+                            android:textSize="24sp" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="175dp"
+                android:layout_marginTop="180dp"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/showMySynagogues_CardID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:layout_weight="1">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/showMySynagogues_imageID"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            app:srcCompat="@drawable/icons8_synagogue_40" />
+
+                        <TextView
+                            android:id="@+id/showMySynagogues_textID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/showMySynagogues_imageID"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/aclonica"
+                            android:text="בתי הכנסת שלי"
+                            android:textSize="24sp" />
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/halacha_yomit_cardID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:clickable="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/halachaYomit_imageID"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="15dp"
+                            app:srcCompat="@drawable/halacha" />
+
+                        <TextView
+                            android:id="@+id/halachaYomit_textID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/halachaYomit_imageID"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/aclonica"
+                            android:text="הלכה יומית"
+                            android:textSize="24sp" />
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_rect01"
+        android:padding="10dp">
+
+
+        <ImageButton
+            android:id="@+id/logoutGabbayID"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:src="@drawable/ic_logoutgabbay_white" />
+
+        <ImageButton
+            android:id="@+id/editProfileGabayID"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toStartOf="@+id/logoutGabbayID"
+            android:layout_toLeftOf="@+id/logoutGabbayID"
+            android:background="@null"
+            android:src="@drawable/ic_edit_white" />
+
+
+        <!--add syn logo-->
+        <ImageButton
+            android:id="@+id/addSynagogueGabay"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toStartOf="@+id/editProfileGabayID"
+            android:layout_toLeftOf="@+id/logoutGabbayID"
+            android:background="@null"
+            android:src="@drawable/icons8_synagogue_40" />
+
+
+        <TextView
+            android:id="@+id/nameGabbayActivityID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/profileGabay"
+            android:layout_toRightOf="@id/profileGabay"
+            android:text="שם"
+            android:textColor="@color/whiteColor"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/nameOfSynGabayID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameGabbayActivityID"
+            android:layout_toEndOf="@id/profileGabay"
+            android:layout_toRightOf="@id/profileGabay"
+            android:text="שם בית הכנסת"
+            android:textColor="@color/whiteColor" />
+
+        <TextView
+            android:id="@+id/EmailGabayID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameOfSynGabayID"
+            android:layout_toEndOf="@id/profileGabay"
+            android:layout_toRightOf="@id/profileGabay"
+            android:text="מייל"
+            android:textColor="@color/whiteColor" />
+
+        <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+            android:id="@+id/profileGabay"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icons8_kippah_48"
+            app:c_border="true"
+            app:c_border_color="@color/whiteColor" />
+        
+
+
+    </RelativeLayout>
+
+    
+
+
+
+</RelativeLayout>
