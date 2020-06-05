@@ -4,6 +4,7 @@ import android.widget.Filter;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("unchecked")
 public class FilterSynagogues extends Filter {
 
     private AdapterSynagogues adapterSynagogues;
