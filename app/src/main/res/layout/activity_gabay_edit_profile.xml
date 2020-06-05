@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GabayEditProfile">
+
+    <!--Toolbar-->
+    <RelativeLayout
+        android:id="@+id/toolbarEditProfileID"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="10dp"
+        android:background="@drawable/shape_rect01">
+
+        <ImageButton
+            android:id="@+id/backEditProfileGabayID"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_back_white"
+            android:background="@null"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="עריכת פרופיל"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:textColor="@color/whiteColor"/>
+
+    </RelativeLayout>
+    
+    <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+        android:id="@+id/profileGabay"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_person_gray"
+        android:layout_below="@+id/toolbarEditProfileID"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        app:c_border="true"
+        app:c_border_color="@color/bg"
+        app:c_border_width="1dp" />
+
+    <EditText
+        android:id="@+id/nameGabayID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileGabay"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_rect02"
+        android:drawablePadding="5dp"
+        android:drawableStart="@drawable/ic_person_gray"
+        android:hint="שם מלא"
+        android:inputType="textPersonName|textCapWords"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/ic_person_gray" />
+
+    <EditText
+    android:id="@+id/phoneGabayID"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/nameGabayID"
+    android:layout_margin="5dp"
+    android:background="@drawable/shape_rect02"
+    android:drawablePadding="5dp"
+    android:drawableStart="@drawable/ic_phone_gray"
+    android:hint="טלפון"
+    android:inputType="phone"
+    android:padding="10dp"
+    android:drawableLeft="@drawable/ic_phone_gray" />
+
+    <EditText
+        android:id="@+id/EmailGabayID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneGabayID"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_rect02"
+        android:drawablePadding="5dp"
+        android:drawableStart="@drawable/ic_mail_gray"
+        android:hint="מייל"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/ic_phone_gray" />
+
+    <EditText
+        android:id="@+id/editNameSynID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/EmailGabayID"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape_rect02"
+        android:drawablePadding="5dp"
+        android:drawableStart="@drawable/icons8_synagogue_40"
+        android:hint="שם בית הכנסת"
+        android:inputType="textPersonName|textCapWords"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/icons8_synagogue_40" />
+
+    <Button
+        android:id="@+id/updateGabayProfileID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/bg"
+        android:layout_below="@+id/editNameSynID"
+        android:text="עדכן"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/whiteColor"
+        android:layout_centerHorizontal="true"/>
+
+
+
+
+
+</RelativeLayout>
