@@ -12,7 +12,7 @@
                 <item
                     android:id="@+id/nav_logout"
                     android:icon="@drawable/ic_logout"
-                    android:visible="true"
+                    android:visible="false"
                     android:title="התנתק" />
                 <item
                     android:id="@+id/nav_help"
@@ -21,6 +21,7 @@
             </group>
         </menu>
     </item>
+
     <item android:title="Communicate">
 
         <menu>
@@ -29,19 +30,26 @@
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share"
                 android:title="שתפו את האפליקציה" />
+            <item
+                android:id="@+id/nav_rate"
+                android:icon="@drawable/ic_rate"
+                android:title="דרגו את האפליקציה" />
 
         </menu>
 
     </item>
+
+
     <item android:title="Other">
 
         <menu>
             <item
                 android:id="@+id/nav_payment"
-                android:icon="@drawable/ic_share"
+                android:icon="@drawable/ic_payment"
                 android:title="תרום לאפליקציה" />
             <item
                 android:id="@+id/nav_contactUs"
+                android:icon="@drawable/ic_contact"
                 android:title="משוב" />
         </menu>
 
