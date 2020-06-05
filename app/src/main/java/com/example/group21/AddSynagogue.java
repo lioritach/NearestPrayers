@@ -163,6 +163,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
             }
         });
 
+        //get the full address for the user
         gpsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -435,6 +436,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         ActivityCompat.requestPermissions(this, locationPermission, LOCATION_REQUEST_CODE);
     }
 
+    //get the full address for the user
     private void detectLocation() {
         Toast.makeText(this, "אנא המתן ...", Toast.LENGTH_LONG).show();
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
