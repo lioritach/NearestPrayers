@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShowMySynagogues">
+
+
+    <!--Toolbar-->
+    <RelativeLayout
+            android:id="@+id/toolbarMySynID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_rect01"
+            android:padding="10dp">
+
+            <ImageButton
+                android:id="@+id/logoutGabbayID"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:src="@drawable/ic_logoutgabbay_white" />
+
+            <ImageButton
+                android:id="@+id/editProfileGabayID"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_toStartOf="@+id/logoutGabbayID"
+                android:layout_toLeftOf="@+id/logoutGabbayID"
+                android:background="@null"
+                android:src="@drawable/ic_edit_white" />
+
+
+            <!--add syn logo-->
+            <ImageButton
+                android:id="@+id/addSynagogueGabay"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_toStartOf="@+id/editProfileGabayID"
+                android:layout_toLeftOf="@+id/logoutGabbayID"
+                android:background="@null"
+                android:src="@drawable/icons8_synagogue_40" />
+
+            <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+                android:id="@+id/profileGabay"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/icons8_kippah_48"
+                app:c_border="true"
+                app:c_border_color="@color/whiteColor" />
+
+
+            <TextView
+                android:id="@+id/nameGabbayActivityID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/profileGabay"
+                android:layout_toRightOf="@id/profileGabay"
+                android:text="שם"
+                android:textColor="@color/whiteColor"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nameOfSynGabayID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nameGabbayActivityID"
+                android:layout_toEndOf="@id/profileGabay"
+                android:layout_toRightOf="@id/profileGabay"
+                android:text="שם בית הכנסת"
+                android:textColor="@color/whiteColor" />
+
+            <TextView
+                android:id="@+id/EmailGabayID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nameOfSynGabayID"
+                android:layout_toEndOf="@id/profileGabay"
+                android:layout_toRightOf="@id/profileGabay"
+                android:text="מייל"
+                android:textColor="@color/whiteColor" />
+
+            <!--Tab: Synagogues-->
+            <LinearLayout
+                android:id="@+id/rel"
+                android:background="@drawable/shape_rect03"
+                android:layout_below="@id/profileGabay"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/mySynTab_ID"
+                    android:background="@drawable/shape_rect04"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="בתי הכנסת שלי"
+                    android:textColor="@color/black" />
+
+
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+    <!--Synagogues-->
+    <RelativeLayout
+        android:id="@+id/mySynRelativeLayout"
+        android:layout_below="@id/toolbarMySynID"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Serach View-->
+        <EditText
+            android:id="@+id/searchSynagogueID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_rect02"
+            android:layout_toStartOf="@+id/filterSynagogueID"
+            android:drawableStart="@drawable/ic_search_gray"
+            android:drawableLeft="@drawable/ic_search_gray"
+            android:drawablePadding="10dp"
+            android:padding="10dp"
+            android:hint="חיפוש"
+            android:layout_toLeftOf="@+id/filterSynagogueID" />
+
+        <!--Filter-->
+        <ImageButton
+            android:id="@+id/filterSynagogueID"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_filter_gray"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp" />
+
+        <TextView
+            android:id="@+id/filteredSynagogueID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/searchSynagogueID"
+            android:textColor="@color/black"
+            android:text="הראה הכל"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <!--RecyclerView : show synagogues -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/synagoguesRecyclerViewID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/filteredSynagogueID"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/row_synagogues_gabay"/>
+
+
+    </RelativeLayout>
+
+        
+
+
+
+</RelativeLayout>
