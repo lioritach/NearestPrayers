@@ -221,7 +221,7 @@ public class AdapterSynagogues extends RecyclerView.Adapter<AdapterSynagogues.Ho
 
     }
 
-    
+    //delete syn
     private void deleteSynagogue(String synId) {
         //delete synagogue using its id
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
