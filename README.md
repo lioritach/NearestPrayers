@@ -15,8 +15,10 @@ In the navigation drawer:
 - Contact us.
 
 In the admin panel:
-- Edit profile.
-- Add synagogue to the list.
+- Edit profile. (update in realtime firebase database)
+- Add synagogue to the list. (update in realtime firebase database)
+- Edit his synagogues. (update in realtime firebase database)
+- Remove his synagogues. (update in realtime firebase database)
 - Showing all his synagogues.
 - Filtering synagogues.
 
