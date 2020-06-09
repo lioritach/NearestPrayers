@@ -10,6 +10,7 @@ public class Sfaradi extends AppCompatActivity {
 
 
     @Override
+    //Open the "Sfardi sidur"
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sfaradi);
