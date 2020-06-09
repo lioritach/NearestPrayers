@@ -12,7 +12,7 @@ public class HalachaYomit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_halacha_yomit);
         
-        //open web//
+        //Open referenced web-site//
         WebView webView = new WebView(this);
         setContentView(webView);
         webView.loadUrl("http://halachayomit.co.il/");
