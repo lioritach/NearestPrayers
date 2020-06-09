@@ -20,7 +20,7 @@
             android:layout_height="30dp"
             android:src="@drawable/ic_back_white"
             android:background="@null"/>
-
+        //Login button
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
