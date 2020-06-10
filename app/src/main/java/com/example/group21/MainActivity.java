@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private Toolbar toolbar;
     private FirebaseAuth auth;
-    private CardView book, zmani_hayum, syn, minyan, halacha_yomit;
+    private CardView book, zmani_hayum, minyan, halacha_yomit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         zmani_hayum = (CardView) findViewById(R.id.zmaniHayum_cardID);
         zmani_hayum.setOnClickListener(this);
 
-        syn = (CardView) findViewById(R.id.synagogue_cardID);
-        syn.setOnClickListener(this);
+//        syn = (CardView) findViewById(R.id.synagogue_cardID);
+//        syn.setOnClickListener(this);
 
         minyan = (CardView) findViewById(R.id.findMinyan_cardID);
         minyan.setOnClickListener(this);
@@ -145,10 +145,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(this, ZmaniHayum.class);
                 startActivity(intent);
                 break;
-//            case R.id.synagogue_cardID:
-//                intent = new Intent(this, Synagogue.class);
-//                startActivity(intent);
-//                break;
             case R.id.findMinyan_cardID:
                 intent = new Intent(this, map.class);
                 startActivity(intent);
