@@ -83,6 +83,7 @@ public class GabayLogin extends AppCompatActivity {
         });
     }
 
+
     private String Email, Password;
 
     private void loginGabbay(){
@@ -90,16 +91,19 @@ public class GabayLogin extends AppCompatActivity {
         Password = passwordGabay.getText().toString().trim();
 
         if(!Patterns.EMAIL_ADDRESS.matcher(Email).matches()){
-            Toast.makeText(this, "כתובת מייל אינה חוקית", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "כתובת מייל אינה חוקית", Toast.LENGTH_SHORT).show();
+            emailGabay.setError("כתובת מייל אינה חוקית");
             return;
         }
         if(TextUtils.isEmpty(Password)){
-            Toast.makeText(this, "שדה סיסמא הינו חובה", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "שדה סיסמא הינו חובה", Toast.LENGTH_SHORT).show();
+            passwordGabay.setError("שדה סיסמא הינו חובה");
             return;
         }
 
         progressDialog.setMessage("מתחבר ...");
         progressDialog.show();
+        progressDialog.dismiss();
 
         firebaseAuth.signInWithEmailAndPassword(Email, Password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
