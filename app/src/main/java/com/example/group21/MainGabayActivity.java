@@ -33,7 +33,7 @@ public class MainGabayActivity extends AppCompatActivity implements View.OnClick
     private ImageView gabayProfile;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
-    private CardView book, zmani_hayum, syn, minyan, halacha_yomit, showMySynagogues;
+    private CardView book, zmani_hayum, minyan, halacha_yomit, showMySynagogues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +54,6 @@ public class MainGabayActivity extends AppCompatActivity implements View.OnClick
         zmani_hayum = (CardView) findViewById(R.id.zmaniHayum_cardID);
         zmani_hayum.setOnClickListener(this);
 
-        syn = (CardView) findViewById(R.id.synagogue_cardID);
-        syn.setOnClickListener(this);
 
         minyan = (CardView) findViewById(R.id.findMinyan_cardID);
         minyan.setOnClickListener(this);
@@ -154,11 +152,6 @@ public class MainGabayActivity extends AppCompatActivity implements View.OnClick
                             gabayEmail.setText(email);
                             gabaySynName.setText(accountType);
 
-//                            if (synName == null) {
-//                                gabaySynName.setText("");
-//                            } else {
-//                                gabaySynName.setText(synName);
-//                            }
                             try {
                                 Picasso.get().load(profileImageGabay).placeholder(R.drawable.icons8_synagogue_40).into(gabayProfile);
                             } catch (Exception e) {
@@ -188,10 +181,6 @@ public class MainGabayActivity extends AppCompatActivity implements View.OnClick
                 intent = new Intent(this, ZmaniHayum.class);
                 startActivity(intent);
                 break;
-//            case R.id.synagogue_cardID:
-//                intent = new Intent(this, Synagogue.class);
-//                startActivity(intent);
-//                break;
             case R.id.findMinyan_cardID:
                 intent = new Intent(this, map.class);
                 startActivity(intent);
