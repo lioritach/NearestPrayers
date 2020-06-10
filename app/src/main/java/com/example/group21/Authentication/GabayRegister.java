@@ -132,7 +132,6 @@ public class GabayRegister extends AppCompatActivity{
     public boolean regValidation(String fullname, String phone, String Email, String pass, String confPass){
         boolean flag = true;
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.[a-z]+";
-        String namePattern= "[a-zA-Z\u0590-\u05fe]+";
 
         //validate data
         if(TextUtils.isEmpty(fullname)){
