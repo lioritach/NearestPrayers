@@ -15,25 +15,20 @@ public class ExampleUnitTest {
     @Test
     public void registerGabay_testPassLenFailed(){
         GabayRegister gabayRegister = new GabayRegister();
-        assertEquals(false, gabayRegister.regValidation("lior", "123", "123", "0524499896", "lioritach1@gmail.com"));
+        assertEquals(false, gabayRegister.regValidation("lior", "0524499896", "lioritach1@gmail.com", "123", "123"));
     }
 
-    @Test
-    public void registerGabay_testEmptyNameFailed(){
-        GabayRegister gabayRegister = new GabayRegister();
-        assertEquals(false, gabayRegister.regValidation("", "123456", "123456", "0524499896", "lioritach1@gmail.com"));
-    }
 
     @Test
     public void registerGabay_testConfPassFailed(){
         GabayRegister gabayRegister = new GabayRegister();
-        assertEquals(false, gabayRegister.regValidation("lior", "123456", "134", "0524499896", "lioritach1@gmail.com"));
+        assertEquals(false, gabayRegister.regValidation("lior", "0524499896", "lioritach1@gmail.com", "123456", "12345"));
     }
 
     @Test
     public void registerGabay_testPhoneEmptyFailed(){
         GabayRegister gabayRegister = new GabayRegister();
-        assertEquals(false, gabayRegister.regValidation("lior", "123456", "123456", "", "lioritach1@gmail.com"));
+        assertEquals(false, gabayRegister.regValidation("lior", "", "lioritach1@gmail.com", "123456", "12345"));
     }
 
     @Test
