@@ -1,5 +1,7 @@
 package com.example.group21;
 
+import com.example.group21.Authentication.GabayRegister;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -11,7 +13,32 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void registerGabay_testPassLenFailed(){
+        GabayRegister gabayRegister = new GabayRegister();
+        assertEquals(false, gabayRegister.regValidation("lior", "123", "123", "0524499896", "lioritach1@gmail.com"));
+    }
+
+    @Test
+    public void registerGabay_testEmptyNameFailed(){
+        GabayRegister gabayRegister = new GabayRegister();
+        assertEquals(false, gabayRegister.regValidation("", "123456", "123456", "0524499896", "lioritach1@gmail.com"));
+    }
+
+    @Test
+    public void registerGabay_testConfPassFailed(){
+        GabayRegister gabayRegister = new GabayRegister();
+        assertEquals(false, gabayRegister.regValidation("lior", "123456", "134", "0524499896", "lioritach1@gmail.com"));
+    }
+
+    @Test
+    public void registerGabay_testPhoneEmptyFailed(){
+        GabayRegister gabayRegister = new GabayRegister();
+        assertEquals(false, gabayRegister.regValidation("lior", "123456", "123456", "", "lioritach1@gmail.com"));
+    }
+
+    @Test
+    public void registerGabay_testEmailPatternFailed(){
+        GabayRegister gabayRegister = new GabayRegister();
+        assertEquals(false, gabayRegister.regValidation("lior", "123456", "123456", "0524499896", "lioritach1^gmail.com"));
     }
 }
