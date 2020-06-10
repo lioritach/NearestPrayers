@@ -161,8 +161,7 @@ public class EditSynagogueActivity extends AppCompatActivity implements Location
                 categoryDialog();
             }
         });
-        
-        //implement updateSyn Button
+
         updateSynButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,6 +169,11 @@ public class EditSynagogueActivity extends AppCompatActivity implements Location
                 //2) Validate data
                 //3) update data to db
                 inputData();
+                if(editValidation(titleUpdateyn.getText().toString(), cityUpdateSyn.getText().toString(), countryUpdateSyn.getText().toString(), StateUpdateSyn.getText().toString(), categoryUpdateSyn.getText().toString(), ShacharitUpdateSyn.getText().toString(),
+                        MinhaUpdateSyn.getText().toString(), ArvitUpdateSyn.getText().toString(), FullAddressUpdateSyn.getText().toString())){
+                    updateSyn();
+                }
+
             }
         });
 
@@ -279,42 +283,59 @@ public class EditSynagogueActivity extends AppCompatActivity implements Location
         fullAddressAdd = FullAddressUpdateSyn.getText().toString().trim();
         negishutAvailable = switchCompat.isChecked();
 
+        editValidation(titleNameSyn, cityAdd, countryAdd, stateAdd, categoryAdd, shacharitAdd, minhaAdd, arvitAdd, fullAddressAdd);
+
+    }
+
+    public boolean editValidation(String titleNameSyn, String cityAdd, String countryAdd, String stateAdd, String categoryAdd, String shacharitAdd, String minhaAdd, String arvitAdd, String fullAddressAdd) {
+
+        boolean flag = true;
+
         //validate data
         if (TextUtils.isEmpty(titleNameSyn)) {
-            Toast.makeText(this, "שם בית הכנסת הוא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
+            //Toast.makeText(this, "שם בית הכנסת הוא שדה חובה!", Toast.LENGTH_SHORT).show();
+            titleUpdateyn.setError("שם בית הכנסת הוא שדה חובה!");
+            flag = false;
         }
         if (TextUtils.isEmpty(fullAddressAdd)) {
-            Toast.makeText(this, "כתובת היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
+            //Toast.makeText(this, "כתובת היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            FullAddressUpdateSyn.setError("כתובת היא שדה חובה!");
+            flag = false;
         }
         if (TextUtils.isEmpty(cityAdd)) {
-            Toast.makeText(this, "עיר היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
+            //Toast.makeText(this, "עיר היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            cityUpdateSyn.setError("עיר היא שדה חובה!");
+            flag = false;
         }
         if (TextUtils.isEmpty(countryAdd)) {
-            Toast.makeText(this, "מדינה היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
+            //Toast.makeText(this, "מדינה היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            countryUpdateSyn.setError("מדינה היא שדה חובה!");
+            flag = false;
         }
         if (TextUtils.isEmpty(stateAdd)) {
-            Toast.makeText(this, "מחוז הוא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
+            //Toast.makeText(this, "מחוז הוא שדה חובה!", Toast.LENGTH_SHORT).show();
+            StateUpdateSyn.setError("מחוז הוא שדה חובה!");
+            flag = false;
         }
         if (TextUtils.isEmpty(categoryAdd)) {
-            Toast.makeText(this, "קטגוריה היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
+            //Toast.makeText(this, "קטגוריה היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            categoryUpdateSyn.setError("קטגוריה היא שדה חובה!");
+            flag = false;
         }
         if (TextUtils.isEmpty(shacharitAdd)) {
-            Toast.makeText(this, "שעת שחרית היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
+            //Toast.makeText(this, "שעת שחרית היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            ShacharitUpdateSyn.setError("שעת שחרית היא שדה חובה!");
+            flag = false;
         }
         if (TextUtils.isEmpty(minhaAdd)) {
-            Toast.makeText(this, "שעת מנחה היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
+            //Toast.makeText(this, "שעת מנחה היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            MinhaUpdateSyn.setError("שעת מנחה היא שדה חובה!");
+            flag = false;
         }
         if (TextUtils.isEmpty(arvitAdd)) {
-            Toast.makeText(this, "שעת ערבית היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
+            //Toast.makeText(this, "שעת ערבית היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            ArvitUpdateSyn.setError("שעת ערבית היא שדה חובה!");
+            flag = false;
         }
 
         if(negishutAvailable){
@@ -322,17 +343,14 @@ public class EditSynagogueActivity extends AppCompatActivity implements Location
             negishutNehim = NegishutNehimUpdateSyn.getText().toString().trim();
             negishutWomen = NegishutAzratNashimUpdateSyn.getText().toString().trim();
 
-        }
-        else{
+        } else{
             negishutNehim = "אין";
             negishutWomen = "אין";
         }
 
-        updateSyn();
-
+        return flag;
     }
-    
-    //Update to db
+
     private void updateSyn() {
         //show progress
         progressDialog.setMessage("מעדכן פרטי בית הכנסת ...");
