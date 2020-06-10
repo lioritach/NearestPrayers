@@ -111,55 +111,66 @@ public class GabayRegister extends AppCompatActivity{
             public void onClick(View v) {
                 //register user
                 inputData();
+                if(regValidation(nameGabay.getText().toString(), phoneGabay.getText().toString(), emailGabay.getText().toString(), passwordGabay.getText().toString(), confirmPasswordGabay.getText().toString())){
+                    createAccount();
+                }
             }
         });
     }
 
     private String FullNameGabay, PasswordGabay, ConfirmPasswordGabay, PhoneNumberGabay, EmailGabay; //SynName;
-    private void inputData(){
+    public void inputData() {
         //input data
         FullNameGabay = nameGabay.getText().toString().trim();
         PasswordGabay = passwordGabay.getText().toString().trim();
         ConfirmPasswordGabay = confirmPasswordGabay.getText().toString().trim();
         PhoneNumberGabay = phoneGabay.getText().toString().trim();
         EmailGabay = emailGabay.getText().toString().trim();
-//        SynName = nameOfSynGabay.getText().toString().trim();
+
+        regValidation(FullNameGabay, PhoneNumberGabay, EmailGabay, PasswordGabay, ConfirmPasswordGabay);
+    }
+    public boolean regValidation(String fullname, String phone, String Email, String pass, String confPass){
+        boolean flag = true;
 
         //validate data
-        if(TextUtils.isEmpty(FullNameGabay)){
-            Toast.makeText(this,"שם הוא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-//        if(TextUtils.isEmpty(SynName)){
-//            Toast.makeText(this,"שם בית הכנסת הוא שדה חובה!", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-        if(TextUtils.isEmpty(PasswordGabay)){
-            Toast.makeText(this,"סיסמא היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(ConfirmPasswordGabay)){
-            Toast.makeText(this,"הזנת סיסמא שוב הינה שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(PhoneNumberGabay)){
-            Toast.makeText(this,"מספר טלפון הוא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(!Patterns.EMAIL_ADDRESS.matcher(EmailGabay).matches()){
-            Toast.makeText(this,"המייל אינו תקין", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(PasswordGabay.length() < 6){
-            Toast.makeText(this,"הסיסמא יכולה להכיל לפחות 6 תווים", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(!PasswordGabay.equals(ConfirmPasswordGabay)){
-            Toast.makeText(this,"הסיסמא שהזנת לא תואמת לסיסמא המקורית", Toast.LENGTH_SHORT).show();
-            return;
+        if(TextUtils.isEmpty(fullname)){
+            //Toast.makeText(this,"שם הוא שדה חובה!", Toast.LENGTH_SHORT).show();
+            nameGabay.setError("שם הוא שדה חובה!");
+            flag = false;
         }
 
-        createAccount();
+        if(TextUtils.isEmpty(pass)){
+            //Toast.makeText(this,"סיסמא היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            passwordGabay.setError("סיסמא היא שדה חובה!");
+            flag = false;
+        }
+        if(TextUtils.isEmpty(confPass)){
+            //Toast.makeText(this,"הזנת סיסמא שוב הינה שדה חובה!", Toast.LENGTH_SHORT).show();
+            confirmPasswordGabay.setError("הזנת סיסמא שוב הינה שדה חובה!");
+            flag = false;
+        }
+        if(TextUtils.isEmpty(phone)){
+            //Toast.makeText(this,"מספר טלפון הוא שדה חובה!", Toast.LENGTH_SHORT).show();
+            phoneGabay.setError("מספר טלפון הוא שדה חובה!");
+            flag = false;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(Email).matches()){
+            //Toast.makeText(this,"המייל אינו תקין", Toast.LENGTH_SHORT).show();
+            emailGabay.setError("המייל אינו תקין!");
+            flag = false;
+        }
+        if(pass.length() < 6){
+            //Toast.makeText(this,"הסיסמא יכולה להכיל לפחות 6 תווים", Toast.LENGTH_SHORT).show();
+            passwordGabay.setError("הסיסמא יכולה להכיל לפחות 6 תווים");
+            flag = false;
+        }
+        if(!pass.equals(confPass)){
+            //Toast.makeText(this,"הסיסמא שהזנת לא תואמת לסיסמא המקורית", Toast.LENGTH_SHORT).show();
+            confirmPasswordGabay.setError("הסיסמא שהזנת לא תואמת לסיסמא המקורית");
+            flag = false;
+        }
+
+        return flag;
     }
 
 
