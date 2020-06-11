@@ -18,6 +18,8 @@ public class Ashkenaz extends AppCompatActivity {
 
         WebView webView = new WebView(this);
         setContentView(webView);
+
+        //source for siddur ashkenazi
         webView.loadUrl("https://www.sefaria.org.il/Siddur_Ashkenaz%2C_Weekday%2C_Shacharit%2C_Preparatory_Prayers%2C_Tallit?lang=he");
 
     }
