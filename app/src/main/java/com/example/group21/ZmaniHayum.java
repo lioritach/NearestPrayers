@@ -14,6 +14,8 @@ public class ZmaniHayum extends AppCompatActivity {
 
         WebView webView = new WebView(this);
         setContentView(webView);
+
+        //zmanei hayom source
         webView.loadUrl("https://calendar.2net.co.il/todaytimes.aspx");
     }
 }
