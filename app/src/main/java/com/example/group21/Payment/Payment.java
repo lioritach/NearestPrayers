@@ -61,6 +61,7 @@ public class Payment extends AppCompatActivity {
         super.onDestroy();
     }
 
+    // payment process
     private void processPayment(){
         amount = editAmount.getText().toString();
         PayPalPayment payPalPayment = new PayPalPayment(new BigDecimal(String.valueOf(amount)),"USD",
