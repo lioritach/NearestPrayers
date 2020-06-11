@@ -217,7 +217,7 @@ public class ShowMySynagogues extends AppCompatActivity {
                 });
 
     }
-
+    //show My Synagogues UI
     private void showMySynagoguesUI() {
         synagoguesRL.setVisibility(View.VISIBLE);
         gabaySynagogues_TAB.setTextColor(getResources().getColor(R.color.black));
