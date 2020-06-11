@@ -15,6 +15,8 @@ public class HalachaYomit extends AppCompatActivity {
         //Open referenced web-site//
         WebView webView = new WebView(this);
         setContentView(webView);
+
+        //source for halacha yomit
         webView.loadUrl("http://halachayomit.co.il/");
 
     }
