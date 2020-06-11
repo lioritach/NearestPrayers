@@ -472,7 +472,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         intent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri);
         startActivityForResult(intent, IMAGE_PICK_CAMERA_CODE);
     }
-
+    // check Storage permission
     private boolean checkStoragePermission(){
         boolean result = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
@@ -480,6 +480,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
 
         return result;
     }
+    // request Storage Permission
 
     private void requestStoragePermission(){
         ActivityCompat.requestPermissions(this, storagePermission, STORAGE_REQUEST_CODE);
