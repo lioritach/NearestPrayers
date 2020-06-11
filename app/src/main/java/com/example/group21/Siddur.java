@@ -20,6 +20,8 @@ public class Siddur extends AppCompatActivity {
         ashkenaz_view = findViewById(R.id.ashkenaz);
         sfaradi_view = findViewById(R.id.sfaradi);
 
+
+        //sfaradi and ashkenazi butttons
         ashkenaz_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
