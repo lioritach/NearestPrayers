@@ -17,7 +17,10 @@ public class Sfaradi extends AppCompatActivity {
 
         WebView webView = new WebView(this);
         setContentView(webView);
+
+        //source for sidor sfaradi
         webView.loadUrl("https://www.sefaria.org.il/Siddur_Edot_HaMizrach%2C_Weekday_Shacharit%2C_Morning_Prayer?lang=he");
+
     }
 }
 
