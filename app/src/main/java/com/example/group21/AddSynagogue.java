@@ -264,7 +264,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
             hashMap.put("city", "עיר: " + cityAdd);
             hashMap.put("country", "מדינה: " + countryAdd);
             hashMap.put("fullAddress", "כתובת: " + fullAddressAdd);
-            hashMap.put("category", "נוסח התפילה: " + categoryAdd);
+            hashMap.put("category", "" + categoryAdd);
             hashMap.put("shacharit", "שעת תפילת שחרית: " + shacharitAdd);
             hashMap.put("minha", "שעת תפילת מנחה: " + minhaAdd);
             hashMap.put("arvit", "שעת תפילת ערבית: " + arvitAdd);
