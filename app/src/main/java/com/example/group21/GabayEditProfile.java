@@ -16,6 +16,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -107,6 +108,9 @@ public class GabayEditProfile extends AppCompatActivity {
             public void onClick(View v) {
                 //update details
                 updateData();
+                if(editprofileValidation(gabayEditName.getText().toString(), gabayEditPhone.getText().toString(), gabayEditMail.getText().toString())){
+                    updateProfile();
+                }
             }
         });
 
@@ -127,7 +131,29 @@ public class GabayEditProfile extends AppCompatActivity {
         EmailGabay = gabayEditMail.getText().toString().trim();
         ChangeSynName = gabayEditSynName.getText().toString().trim();
 
-        updateProfile();
+        //updateProfile();
+        editprofileValidation(FullNameGabay, PhoneNumberGabay, EmailGabay);
+    }
+
+    public boolean editprofileValidation(String fullName, String phoneNumber, String email){
+
+        boolean flag = true;
+
+        //validate data
+        if(TextUtils.isEmpty(fullName)){
+            gabayEditName.setError("אין אפשרות להשאיר שדה זה ריק");
+            flag = false;
+        }
+        if(TextUtils.isEmpty(phoneNumber)){
+            gabayEditPhone.setError("אין אפשרות להשאיר שדה זה ריק");
+            flag = false;
+        }
+        if(TextUtils.isEmpty(email)){
+            gabayEditMail.setError("אין אפשרות להשאיר שדה זה ריק");
+            flag = false;
+        }
+
+        return flag;
     }
 
     private void updateProfile() {
