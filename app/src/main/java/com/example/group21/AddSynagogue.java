@@ -21,6 +21,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
@@ -40,6 +41,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -138,7 +140,14 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
                 //2) Validate data
                 //3) add data to db
                 inputData();
+                if(addSynagogueValidation(titleAddSyn.getText().toString(), cityAddSyn.getText().toString(), countryAddSyn.getText().toString(),
+                        StateAddSyn.getText().toString(), categoryAddSyn.getText().toString(), ShacharitAddSyn.getText().toString(),
+                        MinhaAddSyn.getText().toString(), ArvitAddSyn.getText().toString(), FullAddressAddSyn.getText().toString())){
+                    addSynagogues();
+                }
             }
+
+
         });
 
         switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -182,10 +191,11 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
     }
 
     private String titleNameSyn, cityAdd, countryAdd, stateAdd, categoryAdd, shacharitAdd, minhaAdd, arvitAdd,
-            negishutNehim, negishutWomen, EventsAdd, fullAddressAdd, negishutNote, lat, lon;
+            negishutNehim, negishutWomen, EventsAdd, fullAddressAdd, negishutNote;
     private boolean negishutAvailable = false;
 
     private void inputData() {
+
         //input data
         titleNameSyn = titleAddSyn.getText().toString().trim();
         cityAdd = cityAddSyn.getText().toString().trim();
@@ -201,44 +211,6 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         fullAddressAdd = FullAddressAddSyn.getText().toString().trim();
         negishutAvailable = switchCompat.isChecked();
 
-        //validate data
-        if (TextUtils.isEmpty(titleNameSyn)) {
-            Toast.makeText(this, "שם בית הכנסת הוא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(fullAddressAdd)) {
-            Toast.makeText(this, "כתובת היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(cityAdd)) {
-            Toast.makeText(this, "עיר היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(countryAdd)) {
-            Toast.makeText(this, "מדינה היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(stateAdd)) {
-            Toast.makeText(this, "מחוז הוא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(categoryAdd)) {
-            Toast.makeText(this, "קטגוריה היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(shacharitAdd)) {
-            Toast.makeText(this, "שעת שחרית היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(minhaAdd)) {
-            Toast.makeText(this, "שעת מנחה היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(arvitAdd)) {
-            Toast.makeText(this, "שעת ערבית היא שדה חובה!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
         if(negishutAvailable){
             //there is negishut
             negishutNehim = NegishutNehimAddSyn.getText().toString().trim();
@@ -246,7 +218,67 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
 
         }
 
-        addSynagogues();
+        addSynagogueValidation(titleNameSyn, cityAdd, countryAdd, stateAdd, categoryAdd, shacharitAdd, minhaAdd, arvitAdd,
+                fullAddressAdd);
+
+
+        //addSynagogues();
+
+    }
+
+    public boolean addSynagogueValidation(String titleNameSyn, String cityAdd, String countryAdd, String stateAdd, String categoryAdd, String shacharitAdd, String minhaAdd, String arvitAdd, String fullAddressAdd) {
+
+        boolean flag = true;
+
+        //validate data
+        if (TextUtils.isEmpty(titleNameSyn)) {
+            //Toast.makeText(this, "שם בית הכנסת הוא שדה חובה!", Toast.LENGTH_SHORT).show();
+            titleAddSyn.setError("שם בית הכנסת הוא שדה חובה!");
+            flag = false;
+        }
+        if (TextUtils.isEmpty(fullAddressAdd)) {
+            //Toast.makeText(this, "כתובת היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            FullAddressAddSyn.setError("כתובת היא שדה חובה!");
+            flag = false;
+        }
+        if (TextUtils.isEmpty(cityAdd)) {
+            //Toast.makeText(this, "עיר היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            cityAddSyn.setError("עיר היא שדה חובה!");
+            flag = false;
+        }
+        if (TextUtils.isEmpty(countryAdd)) {
+            //Toast.makeText(this, "מדינה היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            countryAddSyn.setError("מדינה היא שדה חובה!");
+            flag = false;
+        }
+        if (TextUtils.isEmpty(stateAdd)) {
+            //Toast.makeText(this, "מחוז הוא שדה חובה!", Toast.LENGTH_SHORT).show();
+            StateAddSyn.setError("מחוז הוא שדה חובה!");
+            flag = false;
+        }
+        if (TextUtils.isEmpty(categoryAdd)) {
+            //Toast.makeText(this, "נוסח התפילה הוא שדה חובה!", Toast.LENGTH_SHORT).show();
+            categoryAddSyn.setError("נוסח התפילה הוא שדה חובה!");
+            flag = false;
+        }
+        if (TextUtils.isEmpty(shacharitAdd)) {
+            //Toast.makeText(this, "שעת שחרית היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            ShacharitAddSyn.setError("שעת שחרית היא שדה חובה!");
+            flag = false;
+        }
+        if (TextUtils.isEmpty(minhaAdd)) {
+            //Toast.makeText(this, "שעת מנחה היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            MinhaAddSyn.setError("שעת מנחה היא שדה חובה!");
+            flag = false;
+        }
+        if (TextUtils.isEmpty(arvitAdd)) {
+            //Toast.makeText(this, "שעת ערבית היא שדה חובה!", Toast.LENGTH_SHORT).show();
+            ArvitAddSyn.setError("שעת ערבית היא שדה חובה!");
+            flag = false;
+        }
+
+
+        return flag;
 
     }
 
@@ -355,6 +387,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
                         }
                     });
         }
+
     }
 
     private void clearData() {
@@ -472,7 +505,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
         intent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri);
         startActivityForResult(intent, IMAGE_PICK_CAMERA_CODE);
     }
-    // check Storage permission
+
     private boolean checkStoragePermission(){
         boolean result = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
@@ -480,7 +513,6 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
 
         return result;
     }
-    // request Storage Permission
 
     private void requestStoragePermission(){
         ActivityCompat.requestPermissions(this, storagePermission, STORAGE_REQUEST_CODE);
@@ -577,6 +609,7 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
     private void findAddress() {
         //find address, country, state and city
         Geocoder geocoder;
+        GabaySynLocation gabaySynLocation;
         List<Address> addresses;
         double latAdd, lonAdd;
         geocoder = new Geocoder(this, Locale.getDefault());
@@ -594,8 +627,6 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
             cityAddSyn.setText(city);
             StateAddSyn.setText(state);
             FullAddressAddSyn.setText(address);
-            latAdd = latitude;
-            lonAdd = latitude;
 
 
         }catch (Exception e){
