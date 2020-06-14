@@ -101,4 +101,77 @@ public class ExampleUnitTest {
     }
 
 
+    //edit gabay profile
+    @Test
+    public void editGabayProfileName_testEditNamefailed(){
+        GabayEditProfile gabayEditProfile = new GabayEditProfile();
+        assertEquals(true, gabayEditProfile.editprofileValidation("", "0524499896", "lioritach1@gmail.com"));
+    }
+
+    @Test
+    public void editGabayProfileName_testEditPhonefailed(){
+        GabayEditProfile gabayEditProfile = new GabayEditProfile();
+        assertEquals(true, gabayEditProfile.editprofileValidation("Lior itach", "", "lioritach1@gmail.com"));
+    }
+
+    @Test
+    public void editGabayProfileName_testEditEmailfailed(){
+        GabayEditProfile gabayEditProfile = new GabayEditProfile();
+        assertEquals(true, gabayEditProfile.editprofileValidation("Lior itach", "0524499896", ""));
+    }
+
+    //addSyn tests
+    @Test
+    public void AddSynagogue_testNameSyn_failed(){
+        AddSynagogue addSynagogue = new AddSynagogue();
+        assertEquals(true, addSynagogue.addSynagogueValidation("", "ofakim", "israel", "darom", "sfaradi", " 08:00", "13:00", "20:00", "SCE"));
+    }
+
+    @Test
+    public void AddSynagogue_testCity_failed(){
+        AddSynagogue addSynagogue = new AddSynagogue();
+        assertEquals(true, addSynagogue.addSynagogueValidation("test", "", "israel", "darom", "sfaradi", " 08:00", "13:00", "20:00", "SCE"));
+    }
+
+    @Test
+    public void AddSynagogue_testCountry_failed(){
+        AddSynagogue addSynagogue = new AddSynagogue();
+        assertEquals(true, addSynagogue.addSynagogueValidation("test", "ofakim", "", "darom", "sfaradi", " 08:00", "13:00", "20:00", "SCE"));
+    }
+
+    @Test
+    public void AddSynagogue_testState_failed(){
+        AddSynagogue addSynagogue = new AddSynagogue();
+        assertEquals(true, addSynagogue.addSynagogueValidation("test", "ofakim", "israel", "", "sfaradi", " 08:00", "13:00", "20:00", "SCE"));
+    }
+
+    @Test
+    public void AddSynagogue_testCategory_failed(){
+        AddSynagogue addSynagogue = new AddSynagogue();
+        assertEquals(true, addSynagogue.addSynagogueValidation("test", "ofakim", "israel", "darom", "", "08:00", "13:00", "20:00", "SCE"));
+    }
+
+    @Test
+    public void AddSynagogue_testShacharit_failed(){
+        AddSynagogue addSynagogue = new AddSynagogue();
+        assertEquals(true, addSynagogue.addSynagogueValidation("test", "ofakim", "israel", "darom", "sfaradi", "", "13:00", "20:00", "SCE"));
+    }
+
+    @Test
+    public void AddSynagogue_testMinha_failed(){
+        AddSynagogue addSynagogue = new AddSynagogue();
+        assertEquals(true, addSynagogue.addSynagogueValidation("test", "ofakim", "israel", "darom", "sfaradi", "08:00", "", "20:00", "SCE"));
+    }
+
+    @Test
+    public void AddSynagogue_testArvit_failed(){
+        AddSynagogue addSynagogue = new AddSynagogue();
+        assertEquals(true, addSynagogue.addSynagogueValidation("test", "ofakim", "israel", "darom", "sfaradi", "08:00", "13:00", "", "SCE"));
+    }
+
+    @Test
+    public void AddSynagogue_testFullAddress_failed(){
+        AddSynagogue addSynagogue = new AddSynagogue();
+        assertEquals(true, addSynagogue.addSynagogueValidation("test", "ofakim", "israel", "darom", "sfaradi", "08:00", "13:00", "16:00", ""));
+    }
 }
