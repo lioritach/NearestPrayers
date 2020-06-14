@@ -609,7 +609,6 @@ public class AddSynagogue extends AppCompatActivity implements LocationListener 
     private void findAddress() {
         //find address, country, state and city
         Geocoder geocoder;
-        GabaySynLocation gabaySynLocation;
         List<Address> addresses;
         double latAdd, lonAdd;
         geocoder = new Geocoder(this, Locale.getDefault());
